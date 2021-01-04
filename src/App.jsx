@@ -14,6 +14,7 @@ export default function App() {
       <Divider hidden/>
       <Portfolio/>
       <Resume/>
+      
       <About/>
       <Divider hidden/>
       <Skills/>
