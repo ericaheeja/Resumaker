@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Icon, Image, Grid} from "semantic-ui-react";
+import { Card, Icon, Image, Grid } from "semantic-ui-react";
 import htmlImg from "../../Assets/tech/javascript.png";
 import jsImg from "../../Assets/tech/javascript.png";
 import reactImg from "../../Assets/tech/javascript.png";
@@ -53,7 +53,7 @@ const skillCard = (skill) => {
           src={skill.img}
           size="small"
           circular
-          style={{width: "75px", height: "75px"}}
+          style={{ width: "75px", height: "75px" }}
           centered
           className="img"
         />
