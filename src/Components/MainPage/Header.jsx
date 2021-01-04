@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Grid, Segment, Button, Menu } from "semantic-ui-react";
+import MainLayout1 from "../Layout1/MainLayout1";
 
 export default function Header() {
   const [activeItem, setActiveItem] = useState("closest");
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
+
   return (
     <div className="MainHeader">
       <Grid columns="equal">
@@ -32,6 +35,7 @@ export default function Header() {
           <Button>Sign In</Button>
         </Grid.Column>
       </Grid>
+        <Link to="/layout1"><Button>sample</Button></Link>
     </div>
   );
 }
