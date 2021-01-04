@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Image, Grid } from "semantic-ui-react";
 import sampleMe from "../../../Assets/sample.jpg";
 
 export default function About() {
+  const [numOfColumns, setNumOfColumns] = useState(1);
+  const resizeScreen = () => {
+    window.innerWidth >= 1024 ? setNumOfColumns(2) : setNumOfColumns(1);
+  };
+
+  window.addEventListener("resize", resizeScreen);
+
   return (
     <section
       className="AboutContainer"
       id="ABOUT"
       style={{ marginTop: "10%", marginBottom: "10%" }}
     >
-      <Grid columns={2} padded="horizontally">
+      <Grid columns={numOfColumns} padded="horizontally">
         <Grid.Column>
-          <Image src={sampleMe} />
+          <Image id="aboutMeImage" src={sampleMe} />
         </Grid.Column>
         <Grid.Column>
           <Card.Content className="textBox">
