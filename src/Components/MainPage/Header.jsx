@@ -1,40 +1,56 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Grid, Segment, Button, Menu } from "semantic-ui-react";
-import MainLayout1 from "../Layout1/MainLayout1";
+
+import { Grid, Segment, Menu } from "semantic-ui-react";
+
+function Button(props) {
+  const { text, onclick } = props;
+  const style = {
+    borderRadius: "27px",
+    color: "##6d7784",
+    border: "1px solid #e2e4e6",
+    backgroundColor: "whitesmoke",
+    padding: "10px 25px",
+  };
+  return (
+    <button onclick={onclick} style={style}>
+      {text}
+    </button>
+  );
+}
 
 export default function Header() {
-  const [activeItem, setActiveItem] = useState("closest");
+  const [activeItem, setActiveItem] = useState("Overview");
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <div>
+    <div className="MainHeader">
       <Grid columns="equal">
-        <Grid.Column>
-          <h2>RESUMAKER</h2>
+        <Grid.Column floated="left" verticalAlign="middle">
+          <div>
+            <h2>RESUMAKER</h2>
+          </div>
         </Grid.Column>
-        <Grid.Column width={8}>
-          <Menu text>
-            <Menu.Item header>Sort By</Menu.Item>
-            <Menu.Item name="closest" active={activeItem === "closest"} onClick={handleItemClick} />
+        <Grid.Column>
+          <Menu text className="MenuBar" widths={4}>
             <Menu.Item
-              name="mostComments"
-              active={activeItem === "mostComments"}
+              name="Overview"
+              active={activeItem === "Overview"}
               onClick={handleItemClick}
             />
             <Menu.Item
-              name="mostPopular"
-              active={activeItem === "mostPopular"}
+              name="Portfolios"
+              active={activeItem === "Portfolios"}
               onClick={handleItemClick}
             />
+            <Menu.Item name="Samples" active={activeItem === "Samples"} onClick={handleItemClick} />
+            <Menu.Item name="Pricing" active={activeItem === "Pricing"} onClick={handleItemClick} />
           </Menu>
         </Grid.Column>
-        <Grid.Column>
-          <Button>Sign In</Button>
+        <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
+          <Button text={"Sign In"} onclick={null} />
         </Grid.Column>
       </Grid>
-        <Link to="/layout1"><Button>sample</Button></Link>
     </div>
   );
 }
