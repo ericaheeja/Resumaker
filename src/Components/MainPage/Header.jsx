@@ -6,14 +6,15 @@ export default function Header() {
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
   return (
-    <div>
+    <div className="MainHeader">
       <Grid columns="equal">
-        <Grid.Column>
-          <h2>RESUMAKER</h2>
+        <Grid.Column floated="left" verticalAlign="middle">
+          <div>
+            <h2>RESUMAKER</h2>
+          </div>
         </Grid.Column>
-        <Grid.Column width={8}>
+        <Grid.Column>
           <Menu text>
-            <Menu.Item header>Sort By</Menu.Item>
             <Menu.Item name="closest" active={activeItem === "closest"} onClick={handleItemClick} />
             <Menu.Item
               name="mostComments"
@@ -27,7 +28,7 @@ export default function Header() {
             />
           </Menu>
         </Grid.Column>
-        <Grid.Column>
+        <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
           <Button>Sign In</Button>
         </Grid.Column>
       </Grid>
