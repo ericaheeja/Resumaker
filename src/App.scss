@@ -1,0 +1,30 @@
+$white: #fdfdfd;
+$black: #1b1c1d;
+$lighterblue: #f3fafe;
+// $lightblue: #dbf0fd;
+$darkblue: #6ca4c8;
+$darkerblue: #5e90af;
+
+// Semantic-ui
+
+@import "semantic-ui-css/semantic.min.css";
+
+// Home Components
+
+@import "./Components/Home/Home.scss";
+
+// Portfolio Components
+
+@import "./Components/Portfolio/Portfolio.scss";
+
+// Portfolio Components
+
+@import "./Components/Resume/Resume.scss";
+
+// About Components
+
+@import "./Components/About/About.scss";
+
+// Skills Components
+
+@import "./Components/Skills/Skills.scss";

@@ -1,0 +1,38 @@
+.AboutContainer {
+  width: 80%;
+  margin: 0 auto;
+  vertical-align: middle;
+
+  .textBox {
+    color: white;
+    padding: 0 30px;
+
+    .aboutMe {
+      margin-top: 3%;
+      font-size: 30px;
+    }
+
+    .contents {
+      margin-top: 10%;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .buttons {
+      margin-top: 10%;
+
+      .ui.primary.button {
+        color: $white;
+        background-color: #bac964;
+        background: #bac964;
+        margin-right: 20px;
+      }
+
+      .ui.secondary.button {
+        color: $white;
+        background-color: #6c757d;
+        background: #6c757d;
+      }
+    }
+  }
+}
