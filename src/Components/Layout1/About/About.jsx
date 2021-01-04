@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button, Image, Grid } from "semantic-ui-react";
-import sampleMe from "../../Assets/sample.jpg";
+import sampleMe from "../../../Assets/sample.jpg";
 
 export default function About() {
   return (

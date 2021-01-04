@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Icon, Image, Grid } from "semantic-ui-react";
-import htmlImg from "../../Assets/tech/javascript.png";
-import jsImg from "../../Assets/tech/javascript.png";
-import reactImg from "../../Assets/tech/javascript.png";
-import reduxImg from "../../Assets/tech/scss.png";
-import scssImg from "../../Assets/tech/scss.png";
+import htmlImg from "../../../Assets/tech/javascript.png";
+import jsImg from "../../../Assets/tech/javascript.png";
+import reactImg from "../../../Assets/tech/javascript.png";
+import reduxImg from "../../../Assets/tech/scss.png";
+import scssImg from "../../../Assets/tech/scss.png";
 
 const skills = [
   {
