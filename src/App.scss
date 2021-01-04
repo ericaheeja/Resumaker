@@ -9,22 +9,6 @@ $darkerblue: #5e90af;
 
 @import "semantic-ui-css/semantic.min.css";
 
-// Home Components
+// MainPage
 
-@import "./Components/Home/Home.scss";
-
-// Portfolio Components
-
-@import "./Components/Portfolio/Portfolio.scss";
-
-// Portfolio Components
-
-@import "./Components/Resume/Resume.scss";
-
-// About Components
-
-@import "./Components/About/About.scss";
-
-// Skills Components
-
-@import "./Components/Skills/Skills.scss";
+@import "./Components/Mainpage/MainPage.scss";

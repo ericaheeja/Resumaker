@@ -1,24 +1,12 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.scss";
-import Home from "./Components/Home/Home";
-import About from "./Components/About/About";
-import Skills from "./Components/Skills/Skills";
-import Resume from "./Components/Resume/Resume";
-import Portfolio from "./Components/Portfolio/Portfolio";
-import {Divider} from "semantic-ui-react";
+import MainPage from "./Components/MainPage/MainPage";
 
 export default function App() {
   return (
-    <div className="App">
-      <Home/>
-      <Divider hidden/>
-      <Portfolio/>
-      <Resume/>
-      
-      <About/>
-      <Divider hidden/>
-      <Skills/>
-      <Divider hidden/>
-    </div>
+    <Router>
+      <Route exact path="/" component={MainPage} />
+    </Router>
   );
 }
