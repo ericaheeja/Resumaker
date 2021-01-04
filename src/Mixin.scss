@@ -1,0 +1,42 @@
+$white: #fdfdfd;
+$black: #1b1c1d;
+$lighterblue: #f3fafe;
+// $lightblue: #dbf0fd;
+$darkblue: #6ca4c8;
+$darkerblue: #5e90af;
+
+@mixin mobileS {
+  @media only screen and (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin mobileM {
+  @media only screen and (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin mobileL {
+  @media only screen and (min-width: 425px) {
+    @content;
+  }
+}
+
+@mixin tabletP {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}
