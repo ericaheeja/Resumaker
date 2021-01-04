@@ -41,7 +41,7 @@ const educations = [
       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
   },
   {
-    school: "HightScchoclllas",
+    school: "Hight",
     major: "how to be a gentleman",
     period: "2009.02 ~ 2014.06",
     description:
