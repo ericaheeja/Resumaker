@@ -28,7 +28,7 @@ const portfolio = [
 const portfolioCard = (project) => {
   return (
     <Card>
-    <Image src={project.image} width="408px" height="290px"/>
+    <Image src={project.image} height="280px"/>
     <Card.Content>
       <Card.Header>{project.name}</Card.Header>
       <Card.Meta>{project.period}</Card.Meta>
