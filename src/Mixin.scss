@@ -1,12 +1,17 @@
 $white: #fdfdfd;
 $black: #1b1c1d;
-$lighterblue: #f3fafe;
-$lightblue: #dbf0fd;
-$darkblue: #6ca4c8;
-$darkerblue: #5e90af;
-$darkgreen: #588bae;
+$gray: #b9b8bf;
 $darkgray: #4c516d;
-$lightgray: #7285a5;
+$lilywhite: #e9eeeb;
+// $lighterblue: #f3fafe;
+// $lightblue: #dbf0fd;
+// $darkblue: #6ca4c8;
+// $darkerblue: #5e90af;
+// $lightgreen: #e2e5de;
+// $darkgreen: #588bae;
+// $lightgray: #7285a5;
+// $darkwhite: #f6f0e9;
+// $darkpink: #c5bbc0;
 
 @mixin mobileS {
   @media only screen and (min-width: 360px) {
