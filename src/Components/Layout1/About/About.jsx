@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import { Card, Button, Image, Grid } from "semantic-ui-react";
 import sampleMe from "../../../Assets/sample.jpg";
 
+let initialNumOfColumns;
+
+const getInitialNumOfColumns = () => {
+  window.innerWidth < 1024 ? (initialNumOfColumns = 1) : (initialNumOfColumns = 2);
+  return initialNumOfColumns;
+};
+
 export default function About() {
-  const [numOfColumns, setNumOfColumns] = useState(1);
+  const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
+
   const resizeScreen = () => {
     window.innerWidth >= 1024 ? setNumOfColumns(2) : setNumOfColumns(1);
   };
