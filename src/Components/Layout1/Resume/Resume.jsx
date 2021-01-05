@@ -74,10 +74,7 @@ const educationsCard = (education) => {
 export default function Resume() {
   return (
     <section id="RESUME" className="resumeContainer">
-      <div className="title">
-        <h1>RESUME</h1>
-      </div>
-
+        <h2 className="title">RESUME</h2>
       <Grid columns={2} padded="horizontally">
         <Grid.Column>
           <h2 className="subTitle">Education</h2>
