@@ -64,9 +64,22 @@ const skillCard = (skill) => {
   );
 };
 
+let initialNumOfColumns;
+
+const getInitialNumOfColumns = () => {
+  if (window.innerWidth <= 425) {
+    initialNumOfColumns = 1;
+  } else if (window.innerWidth <= 768) {
+    initialNumOfColumns = 2;
+  } else {
+    initialNumOfColumns = 3;
+  }
+  return initialNumOfColumns;
+};
+
 export default function Skills() {
-  const [numOfColumns, setNumOfColumns] = useState(1);
-  console.log(window.innerWidth);
+  const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
+
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
       setNumOfColumns(1);
