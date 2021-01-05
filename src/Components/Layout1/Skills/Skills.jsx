@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Icon, Image, Grid } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Image, Grid } from "semantic-ui-react";
 import htmlImg from "../../../Assets/tech/javascript.png";
 import jsImg from "../../../Assets/tech/javascript.png";
 import reactImg from "../../../Assets/tech/javascript.png";
@@ -65,12 +65,26 @@ const skillCard = (skill) => {
 };
 
 export default function Skills() {
+  const [numOfColumns, setNumOfColumns] = useState(1);
+  console.log(window.innerWidth);
+  const resizeScreen = () => {
+    if (window.innerWidth <= 425) {
+      setNumOfColumns(1);
+    } else if (window.innerWidth <= 768) {
+      setNumOfColumns(2);
+    } else {
+      setNumOfColumns(3);
+    }
+  };
+
+  window.addEventListener("resize", resizeScreen);
+
   return (
     <section className="SkillsContainer" id="SKILLS">
       <div className="title">
         <h1>Skills</h1>
       </div>
-      <Grid container columns={3}>
+      <Grid container columns={numOfColumns}>
         {skills.map((skill) => {
           return skillCard(skill);
         })}
