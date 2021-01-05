@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import {Grid, Card, Image} from "semantic-ui-react";
+import { Grid, Card, Image } from "semantic-ui-react";
 import bookitojpg from "../../../Assets/bookito.jpg";
 import resumakerpng from "../../../Assets/resumaker.png";
 import mepng from "../../../Assets/me.png";
@@ -22,34 +22,32 @@ const portfolio = [
     name: "Random project",
     period: "Apr 2018 - October 2019",
     description: "Random project that shows as a sample project.",
-  }
-]
+  },
+];
 
 const portfolioCard = (project) => {
   return (
     <Card>
-    <Image src={project.image} width="408px" height="290px"/>
-    <Card.Content>
-      <Card.Header>{project.name}</Card.Header>
-      <Card.Meta>{project.period}</Card.Meta>
-      <Card.Description>
-        {project.description}
-      </Card.Description>
-    </Card.Content>
-  </Card>
-  )
-}
+      <Image src={project.image} width="408px" height="290px" />
+      <Card.Content>
+        <Card.Header>{project.name}</Card.Header>
+        <Card.Meta>{project.period}</Card.Meta>
+        <Card.Description>{project.description}</Card.Description>
+      </Card.Content>
+    </Card>
+  );
+};
 
 export default function Portfolio() {
   return (
     <section className="PortfolioContainer" id="PORTFOLIO">
       <h2 className="portfolioTitle">PORTFOLIO</h2>
       <div className="portfolios">
-      <Grid columns={3} textAlign="center">
+        <Grid columns={3} textAlign="center" style={{ margin: 0 }}>
           {portfolio.map((project) => {
             return portfolioCard(project);
           })}
-            </Grid>
+        </Grid>
       </div>
     </section>
   );

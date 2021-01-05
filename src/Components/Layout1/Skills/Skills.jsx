@@ -79,7 +79,7 @@ const getInitialNumOfColumns = () => {
 
 export default function Skills() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
-
+  console.log(window.innerWidth);
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
       setNumOfColumns(1);

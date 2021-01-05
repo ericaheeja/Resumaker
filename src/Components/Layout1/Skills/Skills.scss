@@ -1,5 +1,5 @@
 .SkillsContainer {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 
   .title {
@@ -23,7 +23,8 @@
       width: 98%;
       margin: 0 auto;
       padding: 8%;
-      background-color: #222;
+      background-color: $darkgray;
+      border-radius: 1%;
     }
 
     .name {

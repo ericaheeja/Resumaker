@@ -30,9 +30,7 @@ export default function About() {
         </Grid.Column>
         <Grid.Column>
           <Card.Content className="textBox">
-            <p className="aboutMe">
-              About <strong style={{ color: "#bac964", fontStyle: "bold" }}>Me</strong>
-            </p>
+            <p className="aboutMe">About Me</p>
             <p className="contents">
               If you do not believe you can do it then you have no chance at all. I am a super
               talented react developer. Please hire me, if you don't, you must regret. Do not miss
