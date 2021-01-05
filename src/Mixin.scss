@@ -1,9 +1,12 @@
 $white: #fdfdfd;
 $black: #1b1c1d;
 $lighterblue: #f3fafe;
-// $lightblue: #dbf0fd;
+$lightblue: #dbf0fd;
 $darkblue: #6ca4c8;
 $darkerblue: #5e90af;
+$darkgreen: #588bae;
+$darkgray: #4c516d;
+$lightgray: #7285a5;
 
 @mixin mobileS {
   @media only screen and (min-width: 360px) {
