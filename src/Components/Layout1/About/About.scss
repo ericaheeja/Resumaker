@@ -1,5 +1,17 @@
 .AboutContainer {
-  width: 80%;
+  @include mobileL {
+    width: 312px;
+  }
+  @include tabletP {
+    width: 590px;
+  }
+  @include laptop {
+    width: 792px;
+  }
+  @include desktop {
+    width: 1124px;
+  }
+  width: 73.5%;
   margin: 10% auto;
   vertical-align: middle;
 
