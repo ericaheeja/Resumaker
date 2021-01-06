@@ -24,7 +24,15 @@ export default function Home() {
   const handleItemClick = (name) => {
     activeItem.current = name.target.innerHTML;
     const skills = document.getElementById(activeItem.current);
-    skills?.scrollIntoView({ behavior: "smooth" });
+    const navHeight = document.getElementsByClassName("ui inverted segment")[0].clientHeight;
+    if (skills === null) {
+      window.scroll(0, navHeight);
+    }
+    skills?.scrollIntoView(true);
+    const scrolledY = window.scrollY;
+    if (scrolledY) {
+      window.scroll(0, scrolledY - navHeight);
+    }
   };
 
   const navbarClick = () => {
@@ -33,47 +41,55 @@ export default function Home() {
 
   return (
     <section className="navbar">
-      <Segment inverted>
-        <a className="bars" onClick={navbarClick}>
-          <Icon name="bars" />
-        </a>
-        <div className="menuItem" id="menuItem">
-          {open ? (
-            <Menu inverted secondary>
-              <Menu.Item
-                name="HOME"
-                active={activeItem.current === "HOME"}
-                onClick={handleItemClick}
-              />
-              <Menu.Item
-                name="PORTFOLIO"
-                active={activeItem.current === "PORTFOLIO"}
-                onClick={handleItemClick}
-              />
-              <Menu.Item
-                name="RESUME"
-                active={activeItem.current === "RESUME"}
-                onClick={handleItemClick}
-              />
-              <Menu.Item
-                name="ABOUT"
-                active={activeItem.current === "ABOUT"}
-                onClick={handleItemClick}
-              />
-              <Menu.Item
-                name="SKILLS"
-                active={activeItem.current === "SKILLS"}
-                onClick={handleItemClick}
-              />
-              <Menu.Item
-                name="CONTACT"
-                active={activeItem.current === "CONTACT"}
-                onClick={handleItemClick}
-              />
-            </Menu>
-          ) : null}
-        </div>
-      </Segment>
+      <div class="ui fixed top sticky">
+        <Segment inverted>
+          <a className="bars" onClick={navbarClick}>
+            <Icon name="bars" />
+          </a>
+          <div className="menuItem" id="menuItem">
+            {open ? (
+              <Menu inverted secondary>
+                <Menu.Item
+                  name="HOME"
+                  active={activeItem.current === "HOME"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  name="PORTFOLIO"
+                  active={activeItem.current === "PORTFOLIO"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  name="RESUME"
+                  active={activeItem.current === "RESUME"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  name="ABOUT"
+                  active={activeItem.current === "ABOUT"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  name="SKILLS"
+                  active={activeItem.current === "SKILLS"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  name="CONTACT"
+                  active={activeItem.current === "CONTACT"}
+                  onClick={handleItemClick}
+                />
+                <Menu.Item
+                  style={{ backgroundColor: "#4c516d" }}
+                  name="USE THIS TEMPLATE"
+                  active={activeItem.current === "USE THIS TEMPLATE"}
+                  onClick={handleItemClick}
+                />
+              </Menu>
+            ) : null}
+          </div>
+        </Segment>
+      </div>
     </section>
   );
 }
