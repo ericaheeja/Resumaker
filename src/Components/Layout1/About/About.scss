@@ -1,11 +1,23 @@
 .AboutContainer {
   width: 80%;
-  margin: 0 auto;
+  margin: 10% auto;
   vertical-align: middle;
+
+  .aboutMeTitle {
+    color: $white;
+    text-align: center;
+    margin: 10% auto 10%;
+    @include tabletP {
+      margin: 10% auto 5%;
+    }
+  }
+
+  .aboutMeContents {
+    background-color: $darkgray;
+  }
 
   .textBox {
     color: white;
-    // padding: 0 30px;
 
     .aboutMe {
       margin-top: 1.5%;
@@ -19,7 +31,6 @@
     }
 
     .buttons {
-      // margin-top: 10%;
       color: $white;
 
       .ui.primary.button {
