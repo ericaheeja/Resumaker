@@ -43,6 +43,12 @@ $lilywhite: #e9eeeb;
   }
 }
 
+@mixin tablePtoLaptop {
+  @media only screen and (min-width: 990px) {
+    @content;
+  }
+}
+
 @mixin laptop {
   @media only screen and (min-width: 1024px) {
     @content;
