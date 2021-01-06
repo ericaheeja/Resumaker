@@ -31,4 +31,8 @@
 
 .MainLayout1 {
   background: $black;
+  margin-top: 52px;
+  @include laptop {
+    margin-top: 67px;
+  }
 }
