@@ -1,0 +1,37 @@
+.SkillsContainer {
+    width: 80%;
+    margin: 0 auto;
+  
+    .title {
+      color: white;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 5%;
+    }
+  
+    .skillCard {
+      padding: 0;
+      color: $white;
+  
+      .img {
+        background-color: #bac964;
+        background: #bac964;
+      }
+  
+      .contents {
+        margin: 0 auto;
+        padding: 5%;
+        background-color: $darkgray;
+      }
+  
+      .name {
+        color: $white;
+        text-align: center;
+      }
+  
+      .description {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+  

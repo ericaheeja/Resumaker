@@ -9,37 +9,10 @@
 
 @import "./Components/Mainpage/MainPage.scss";
 
-// Home Components
+// Layout1
 
-@import "./Components/Layout1/Home/Home.scss";
+@import "./Components//Layout1/MainLayout1.scss";
+@import "./Components/EditLayout1/EditMainLayout1.scss";
 
-// Portfolio Components
 
-@import "./Components/Layout1/Portfolio/Portfolio.scss";
 
-// Portfolio Components
-
-@import "./Components/Layout1/Resume/Resume.scss";
-
-// About Components
-
-@import "./Components/Layout1/About/About.scss";
-
-// Skills Components
-
-@import "./Components/Layout1/Skills/Skills.scss";
-
-.MainLayout1 {
-  background: $black;
-  margin-top: 52px;
-  .ui.fixed.top.sticky.topButton {
-    right: 1%;
-    top: 90%;
-  }
-  @include laptop {
-    margin-top: 67px;
-  }
-  @include desktop {
-    padding-top: 1px;
-  }
-}
