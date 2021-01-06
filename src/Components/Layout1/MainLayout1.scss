@@ -1,0 +1,35 @@
+// Home Components
+
+@import "./Home/Home.scss";
+
+// Portfolio Components
+
+@import "./Portfolio/Portfolio.scss";
+
+// Portfolio Components
+
+@import "./Resume/Resume.scss";
+
+// About Components
+
+@import "./About/About.scss";
+
+// Skills Components
+
+@import "./Skills/Skills.scss";
+
+
+.MainLayout1 {
+    background: $black;
+    margin-top: 52px;
+    .ui.fixed.top.sticky.topButton {
+      right: 1%;
+      top: 90%;
+    }
+    @include laptop {
+      margin-top: 67px;
+    }
+    @include desktop {
+      padding-top: 1px;
+    }
+  }

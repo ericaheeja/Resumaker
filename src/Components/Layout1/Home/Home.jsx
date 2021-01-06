@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Icon, Menu, Segment } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const activeItem = useRef("home");
@@ -79,15 +80,12 @@ export default function Home() {
                   active={activeItem.current === "CONTACT"}
                   onClick={handleItemClick}
                 />
-                <Menu.Item
-                  style={{ backgroundColor: "#4c516d" }}
-                  name="USE THIS TEMPLATE"
-                  active={activeItem.current === "USE THIS TEMPLATE"}
-                  onClick={handleItemClick}
-                />
               </Menu>
             ) : null}
           </div>
+          <Link to="/editLayout1">
+            <button>Use This Template</button>
+          </Link>
         </Segment>
       </div>
     </section>

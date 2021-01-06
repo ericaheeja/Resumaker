@@ -1,0 +1,51 @@
+.resumeContainer {
+    width: 80%;
+    margin: 0 auto;
+    vertical-align: middle;
+  
+    .title {
+      color: white;
+      justify-content: center;
+      text-align: center;
+      margin-top: 10%;
+    }
+  
+    .subTitle {
+      color: $white;
+      font-size: 20px;
+      text-align: center;
+      margin: 5% 0;
+    }
+  
+    .experienceCard {
+      background-color: $darkgray;
+      padding: 3%;
+      margin-bottom: 7%;
+      border-radius: 1%;
+  
+      .period {
+        color: $lilywhite;
+        font-weight: bold;
+        font-size: small;
+      }
+  
+      .title {
+        color: $lilywhite;
+        margin: 2% 0 0 0;
+        padding: 0;
+        text-align: left;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+  
+      .position {
+        color: $gray;
+      }
+  
+      .description {
+        margin: 2% 0 0 0;
+        color: $gray;
+      }
+    }
+  }
+  
