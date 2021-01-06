@@ -1,53 +1,54 @@
 import React, { useState } from "react";
-import { Card, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+import { Form, Input, Button } from "antd";
 
-const experiences = [
-  {
-    title: "bookito",
-    position: "project manager",
-    period: "Jul, 1, 2020 - present",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-  {
-    title: "Ssenkkochi",
-    position: "Server",
-    period: "Jul, 1, 2020 - present",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-  {
-    title: "Ssenkkochi",
-    position: "Server",
-    period: "Jul, 1, 2020 - present",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-];
+// const experiences = [
+//   {
+//     title: "bookito",
+//     position: "project manager",
+//     period: "Jul, 1, 2020 - present",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+//   {
+//     title: "Ssenkkochi",
+//     position: "Server",
+//     period: "Jul, 1, 2020 - present",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+//   {
+//     title: "Senkkochi",
+//     position: "Server",
+//     period: "Jul, 1, 2020 - present",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+// ];
 
-const educations = [
-  {
-    school: "BCIT",
-    major: "CST",
-    period: "2019.01 ~ present",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-  {
-    school: "SKKU",
-    major: "Statistics",
-    period: "2009.02 ~ 2014.06",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-  {
-    school: "Hight",
-    major: "how to be a gentleman",
-    period: "2009.02 ~ 2014.06",
-    description:
-      "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-  },
-];
+// const educations = [
+//   {
+//     school: "BCIT",
+//     major: "CST",
+//     period: "2019.01 ~ present",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+//   {
+//     school: "SKKU",
+//     major: "Statistics",
+//     period: "2009.02 ~ 2014.06",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+//   {
+//     school: "Hight",
+//     major: "how to be a gentleman",
+//     period: "2009.02 ~ 2014.06",
+//     description:
+//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
+//   },
+// ];
 
 const experienceCard = (experience) => {
   return (
@@ -60,7 +61,46 @@ const experienceCard = (experience) => {
   );
 };
 
-const educationsCard = (education) => {
+const experienceForm = (experiences, setExperiences) => {
+  const addExperience = (value) => {
+    const newExperience = {
+      title: value.title,
+      position: value.position,
+      period: value.period,
+      description: value.description
+    }
+    const newExperiences = [...experiences, newExperience];
+    setExperiences(newExperiences);
+  };
+
+  const { TextArea } = Input;
+
+  return (
+    <div className="experienceCard" key={experiences.length}>
+
+      <Form className="addForm" onFinish={addExperience}>
+        <Form.Item label="period" name="period">
+          <Input className="period" type="period" />
+        </Form.Item>
+        <Form.Item label="title" name="title">
+          <Input className="title" type="title" />
+        </Form.Item>
+        <Form.Item label="position" name="position">
+          <Input className="position" type="position" />
+        </Form.Item>
+        <Form.Item label="description" name="description">
+          <TextArea className="description" type="description" />
+        </Form.Item>
+        <Form.Item>
+        <Button className="saveBtn" htmlType="submit">Save</Button>
+        </Form.Item>
+      </Form>
+  </div>
+  )
+}
+
+
+const educationCard = (education) => {
   return (
     <div className="experienceCard" key={education.school}>
       <span className="period">{education.period}</span>
@@ -70,6 +110,45 @@ const educationsCard = (education) => {
     </div>
   );
 };
+
+const educationForm = (educations, setEducations) => {
+  const addEducation = (value) => {
+    const newEducation = {
+      period: value.period,
+      school: value.school,
+      major: value.major,
+      description: value.description
+    }
+    const newEducations = [...educations, newEducation];
+    setEducations(newEducations);
+
+  }
+
+  const { TextArea } = Input;
+
+  return (
+    <div className="experienceCard" key={educations.length}>
+      <Form className="addEducationForm" onFinish={addEducation}>
+      <Form.Item label="period" name="period">
+        <Input className="period" type="period" />
+      </Form.Item>
+      <Form.Item label="school" name="school">
+        <Input className="school" type="school" />
+      </Form.Item>
+      <Form.Item label="major" name="major">
+        <Input className="major" type="major" />
+      </Form.Item>
+      <Form.Item label="description" name="description">
+        <TextArea className="description" type="description" />
+      </Form.Item>
+      <Form.Item>
+      <Button className="saveBtn" htmlType="submit">Save</Button>
+      </Form.Item>
+    </Form>
+  </div>
+  )
+}
+
 
 let numOfColumns;
 
@@ -84,6 +163,8 @@ const getNumOfColumns = () => {
 
 export default function EditResume() {
   const [col, setCol] = useState(getNumOfColumns());
+  const [experiences, setExperiences] = useState([]);
+  const [educations, setEducations] = useState([]);
 
   const resizeOfScreen = () => {
     if (window.innerWidth <= 426) {
@@ -100,17 +181,18 @@ export default function EditResume() {
       <h2 className="title">RESUME</h2>
       <Grid columns={col} padded="horizontally">
         <Grid.Column>
-          <h2 className="subTitle">Education</h2>
+          <h2 className="subTitle">Experience</h2>
           {experiences.map((experience) => {
             return experienceCard(experience);
           })}
-          <div>FormForm</div>
+          {experienceForm(experiences, setExperiences)}
         </Grid.Column>
         <Grid.Column>
-          <h2 className="subTitle">Experience</h2>
+          <h2 className="subTitle">Education</h2>
           {educations.map((education) => {
-            return educationsCard(education);
+            return educationCard(education);
           })}
+          {educationForm(educations, setEducations)}
         </Grid.Column>
       </Grid>
     </section>
