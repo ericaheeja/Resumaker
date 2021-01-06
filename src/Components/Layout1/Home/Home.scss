@@ -7,7 +7,7 @@
     .bars {
       cursor: pointer;
       font-size: 25px;
-      @media only screen and (min-width: 990px) {
+      @include laptop {
         display: none;
       }
     }
@@ -15,7 +15,7 @@
       .ui.secondary.inverted.menu {
         justify-content: center;
         flex-direction: column;
-        @media only screen and (min-width: 990px) {
+        @include laptop {
           flex-direction: row;
         }
       }
