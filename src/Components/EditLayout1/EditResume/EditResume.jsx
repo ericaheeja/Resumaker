@@ -17,8 +17,8 @@ const experiences = [
       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
   },
   {
-    title: "hahahaSchool",
-    position: "assistant",
+    title: "Ssenkkochi",
+    position: "Server",
     period: "Jul, 1, 2020 - present",
     description:
       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
@@ -104,6 +104,7 @@ export default function EditResume() {
           {experiences.map((experience) => {
             return experienceCard(experience);
           })}
+          <div>FormForm</div>
         </Grid.Column>
         <Grid.Column>
           <h2 className="subTitle">Experience</h2>

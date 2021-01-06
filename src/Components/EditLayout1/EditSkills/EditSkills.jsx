@@ -1,49 +1,7 @@
 import React, { useState } from "react";
 import { Image, Grid } from "semantic-ui-react";
-import htmlImg from "../../../Assets/tech/javascript.png";
+import { Form, Input, Button } from "antd";
 import jsImg from "../../../Assets/tech/javascript.png";
-import reactImg from "../../../Assets/tech/javascript.png";
-import reduxImg from "../../../Assets/tech/scss.png";
-import scssImg from "../../../Assets/tech/scss.png";
-
-const skills = [
-  {
-    name: "html",
-    img: htmlImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-  {
-    name: "javascript",
-    img: jsImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-  {
-    name: "react",
-    img: reactImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-  {
-    name: "redux",
-    img: reduxImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-  {
-    name: "scss",
-    img: scssImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-  {
-    name: "typescript",
-    img: jsImg,
-    description:
-      "React is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
-  },
-];
 
 const skillCard = (skill) => {
   return (
@@ -64,6 +22,46 @@ const skillCard = (skill) => {
   );
 };
 
+const skillForm = (skills, setSkills) => {
+  const addSkill = (values) => {
+    const newSkill = {
+      img: jsImg,
+      name: values.name,
+      description: values.description,
+    };
+    const newSkills = [...skills, newSkill];
+    setSkills(newSkills);
+  };
+  const { TextArea } = Input;
+  return (
+    <Grid.Column className="skillCard" key={skills.length + 1}>
+      <div className="contents">
+        <Form className="addForm" onFinish={addSkill}>
+          <Image
+            src={jsImg}
+            size="small"
+            circular
+            style={{ width: "75px", height: "75px" }}
+            centered
+            className="img"
+          />
+          <Form.Item label="Name" name="name" className="formName">
+            <Input className="clientInput" type="name" />
+          </Form.Item>
+          <Form.Item label="Description" name="description" className="formDescription">
+            <TextArea className="clientInput" type="description" />
+          </Form.Item>
+          <Form.Item>
+            <Button className="saveBtn" htmlType="submit">
+              Save
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </Grid.Column>
+  );
+};
+
 let initialNumOfColumns;
 
 const getInitialNumOfColumns = () => {
@@ -79,6 +77,7 @@ const getInitialNumOfColumns = () => {
 
 export default function EditSkills() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
+  const [skills, setSkills] = useState([]);
 
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
@@ -101,6 +100,7 @@ export default function EditSkills() {
         {skills.map((skill) => {
           return skillCard(skill);
         })}
+        {skillForm(skills, setSkills)}
       </Grid>
     </section>
   );
