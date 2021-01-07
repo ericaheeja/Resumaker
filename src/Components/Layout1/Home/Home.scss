@@ -7,7 +7,7 @@
     .bars {
       cursor: pointer;
       font-size: 25px;
-      @include laptop {
+      @include tablePtoLaptop {
         display: none;
       }
     }
@@ -15,7 +15,7 @@
       .ui.secondary.inverted.menu {
         justify-content: center;
         flex-direction: column;
-        @include laptop {
+        @include tablePtoLaptop {
           flex-direction: row;
         }
       }
