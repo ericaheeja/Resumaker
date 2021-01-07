@@ -2,73 +2,14 @@ import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import { Form, Input, Button } from "antd";
 
-// const experiences = [
-//   {
-//     title: "bookito",
-//     position: "project manager",
-//     period: "Jul, 1, 2020 - present",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-//   {
-//     title: "Ssenkkochi",
-//     position: "Server",
-//     period: "Jul, 1, 2020 - present",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-//   {
-//     title: "Senkkochi",
-//     position: "Server",
-//     period: "Jul, 1, 2020 - present",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-// ];
-
-// const educations = [
-//   {
-//     school: "BCIT",
-//     major: "CST",
-//     period: "2019.01 ~ present",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-//   {
-//     school: "SKKU",
-//     major: "Statistics",
-//     period: "2009.02 ~ 2014.06",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-//   {
-//     school: "Hight",
-//     major: "how to be a gentleman",
-//     period: "2009.02 ~ 2014.06",
-//     description:
-//       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
-//   },
-// ];
-
-const experienceCard = (experience) => {
-  return (
-    <div className="experienceCard" key={experience.title}>
-      <span className="period">{experience.period}</span>
-      <h3 className="title">{experience.title}</h3>
-      <span className="position">{experience.position}</span>
-      <p className="description">{experience.description}</p>
-    </div>
-  );
-};
-
 const experienceForm = (experiences, setExperiences) => {
   const addExperience = (value) => {
     const newExperience = {
       title: value.title,
       position: value.position,
       period: value.period,
-      description: value.description
-    }
+      description: value.description,
+    };
     const newExperiences = [...experiences, newExperience];
     setExperiences(newExperiences);
   };
@@ -77,13 +18,12 @@ const experienceForm = (experiences, setExperiences) => {
 
   return (
     <div className="experienceCard" key={experiences.length}>
-
       <Form className="addForm" onFinish={addExperience}>
         <Form.Item label="period" name="period">
           <Input className="period" type="period" />
         </Form.Item>
         <Form.Item label="title" name="title">
-          <Input className="title" type="title" />
+          <Input className="experienceTitle" type="title" />
         </Form.Item>
         <Form.Item label="position" name="position">
           <Input className="position" type="position" />
@@ -92,21 +32,11 @@ const experienceForm = (experiences, setExperiences) => {
           <TextArea className="description" type="description" />
         </Form.Item>
         <Form.Item>
-        <Button className="saveBtn" htmlType="submit">Save</Button>
+          <Button className="saveBtn" htmlType="submit">
+            Save
+          </Button>
         </Form.Item>
       </Form>
-  </div>
-  )
-}
-
-
-const educationCard = (education) => {
-  return (
-    <div className="experienceCard" key={education.school}>
-      <span className="period">{education.period}</span>
-      <h3 className="title">{education.school}</h3>
-      <span className="position">{education.major}</span>
-      <p className="description">{education.description}</p>
     </div>
   );
 };
@@ -117,38 +47,38 @@ const educationForm = (educations, setEducations) => {
       period: value.period,
       school: value.school,
       major: value.major,
-      description: value.description
-    }
+      description: value.description,
+    };
     const newEducations = [...educations, newEducation];
     setEducations(newEducations);
-
-  }
+  };
 
   const { TextArea } = Input;
 
   return (
     <div className="experienceCard" key={educations.length}>
       <Form className="addEducationForm" onFinish={addEducation}>
-      <Form.Item label="period" name="period">
-        <Input className="period" type="period" />
-      </Form.Item>
-      <Form.Item label="school" name="school">
-        <Input className="school" type="school" />
-      </Form.Item>
-      <Form.Item label="major" name="major">
-        <Input className="major" type="major" />
-      </Form.Item>
-      <Form.Item label="description" name="description">
-        <TextArea className="description" type="description" />
-      </Form.Item>
-      <Form.Item>
-      <Button className="saveBtn" htmlType="submit">Save</Button>
-      </Form.Item>
-    </Form>
-  </div>
-  )
-}
-
+        <Form.Item label="period" name="period">
+          <Input className="period" type="period" />
+        </Form.Item>
+        <Form.Item label="school" name="school">
+          <Input className="school" type="school" />
+        </Form.Item>
+        <Form.Item label="major" name="major">
+          <Input className="major" type="major" />
+        </Form.Item>
+        <Form.Item label="description" name="description">
+          <TextArea className="description" type="description" />
+        </Form.Item>
+        <Form.Item>
+          <Button className="saveBtn" htmlType="submit">
+            Save
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
 
 let numOfColumns;
 
@@ -175,6 +105,54 @@ export default function EditResume() {
   };
 
   window.addEventListener("resize", resizeOfScreen);
+
+  const experienceCard = (experience) => {
+    const removeExperience = (title) => {
+      const updatedExperience = experiences.filter((e) => e.title !== experience.title);
+      setExperiences(updatedExperience);
+    };
+
+    return (
+      <div className="experienceCard" key={experience.title}>
+        <span className="period">{experience.period}</span>
+        <h3 className="title">{experience.title}</h3>
+        <span className="position">{experience.position}</span>
+        <p className="description">{experience.description}</p>
+        <button
+          classNmae="removeBtn"
+          onClick={() => {
+            removeExperience(experience.title);
+          }}
+        >
+          Remove
+        </button>
+      </div>
+    );
+  };
+
+  const educationCard = (education) => {
+    const removeEducation = (school) => {
+      const updatedEducation = educations.filter((e) => e.school !== education.school);
+      setEducations(updatedEducation);
+    };
+
+    return (
+      <div className="experienceCard" key={education.school}>
+        <span className="period">{education.period}</span>
+        <h3 className="title">{education.school}</h3>
+        <span className="position">{education.major}</span>
+        <p className="description">{education.description}</p>
+        <button
+          classNmae="removeBtn"
+          onClick={() => {
+            removeEducation(education.school);
+          }}
+        >
+          Remove
+        </button>
+      </div>
+    );
+  };
 
   return (
     <section id="RESUME" className="resumeContainer">
