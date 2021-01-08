@@ -1,5 +1,4 @@
-import react from "react";
-import { Button, Grid, Image } from "semantic-ui-react";
+import React from "react";
 
 export default function Samples() {
   return (
