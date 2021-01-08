@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import { Form, Input, Button } from "antd";
+import { firebaseStore } from "../../../Config/firebase";
 
 const experienceForm = (experiences, setExperiences) => {
   const addExperience = (value) => {
@@ -11,6 +12,10 @@ const experienceForm = (experiences, setExperiences) => {
       description: value.description,
     };
     const newExperiences = [...experiences, newExperience];
+
+    const firebaseReference = firebaseStore.doc("experience/sample1");
+    firebaseReference.set(newExperience);
+
     setExperiences(newExperiences);
   };
 
