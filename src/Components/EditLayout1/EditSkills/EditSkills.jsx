@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Image, Grid } from "semantic-ui-react";
-import { Form, Input, Button } from "antd";
-import jsImg from "../../../Assets/tech/javascript.png";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Upload, message } from "antd";
+import ImgCrop from "antd-img-crop";
 
 let initialNumOfColumns;
 
@@ -16,9 +17,109 @@ const getInitialNumOfColumns = () => {
   return initialNumOfColumns;
 };
 
+const dummyRequest = ({ file, onSuccess }) => {
+  setTimeout(() => {
+    onSuccess("ok");
+  }, 0);
+};
+
+function getBase64(img, callback) {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => callback(reader.result));
+  reader.readAsDataURL(img);
+}
+
+function beforeUpload(file) {
+  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  if (!isJpgOrPng) {
+    message.error("You can only upload JPG/PNG file!");
+  }
+  const isLt2M = file.size / 1024 / 1024 < 2;
+  if (!isLt2M) {
+    message.error("Image must smaller than 2MB!");
+  }
+  return isJpgOrPng && isLt2M;
+}
+
+function SkillForm(skills, setSkills, fileList) {
+  const [loading, setLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  const handleChange = (info) => {
+    if (info.file.status === "uploading") {
+      console.log(info.file.status);
+      setLoading(true);
+      return;
+    }
+    if (info.file.status === "done") {
+      console.log(info.file.status);
+      // Get this url from response in real world.
+      getBase64(info.file.originFileObj, (imageUrl) => {
+        setLoading(false);
+        setImageUrl(imageUrl);
+      });
+    }
+  };
+
+  const uploadButton = (
+    <div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
+
+  const addSkill = (values) => {
+    const newSkill = {
+      img: imageUrl,
+      name: values.name,
+      description: values.description,
+    };
+    const newSkills = [...skills, newSkill];
+    fileList.current.push(imageUrl);
+    setImageUrl(null);
+    setSkills(newSkills);
+  };
+
+  const { TextArea } = Input;
+
+  return (
+    <Grid.Column className="skillCard" key={skills.length}>
+      <div className="contents">
+        {/* <ImgCrop rotate shape={"round"} > */}
+        <Upload
+          name="avatar"
+          listType="picture-card"
+          className="avatar-uploader"
+          showUploadList={false}
+          customRequest={dummyRequest}
+          beforeUpload={beforeUpload}
+          onChange={handleChange}
+        >
+          {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: "100%" }} /> : uploadButton}
+        </Upload>
+        {/* </ImgCrop> */}
+        <Form className="addForm" onFinish={addSkill}>
+          <Form.Item label="Name" name="name" className="formName">
+            <Input className="clientInput" type="name" />
+          </Form.Item>
+          <Form.Item label="Description" name="description" className="formDescription">
+            <TextArea className="clientInput" type="description" />
+          </Form.Item>
+          <Form.Item>
+            <Button className="saveBtn" htmlType="submit">
+              Save
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </Grid.Column>
+  );
+}
+
 export default function EditSkills() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
   const [skills, setSkills] = useState([]);
+  const fileList = useRef([]);
 
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
@@ -33,8 +134,12 @@ export default function EditSkills() {
   window.addEventListener("resize", resizeScreen);
 
   const skillCard = (skill) => {
-    const removeBtn = (name) => {
+    const removeBtn = () => {
       const updatedArr = skills.filter((e) => e.name !== skill.name);
+      const findIdx = (element) => element.name === skill.name;
+      console.log(fileList.current);
+      console.log(fileList.current.findIndex(findIdx));
+      fileList.current.splice(fileList.current.findIndex(findIdx), 1);
       setSkills(updatedArr);
     };
 
@@ -52,53 +157,13 @@ export default function EditSkills() {
           <button
             className="removeBtn"
             onClick={() => {
-              removeBtn(skill.name);
+              removeBtn();
             }}
           >
             remove
           </button>
           <h3 className="name">{skill.name}</h3>
           <p className="description">{skill.description}</p>
-        </div>
-      </Grid.Column>
-    );
-  };
-
-  const skillForm = () => {
-    const addSkill = (values) => {
-      const newSkill = {
-        img: jsImg,
-        name: values.name,
-        description: values.description,
-      };
-      const newSkills = [...skills, newSkill];
-      setSkills(newSkills);
-    };
-    const { TextArea } = Input;
-    return (
-      <Grid.Column className="skillCard" key={skills.length}>
-        <div className="contents">
-          <Form className="addForm" onFinish={addSkill}>
-            <Image
-              src={jsImg}
-              size="small"
-              circular
-              style={{ width: "75px", height: "75px" }}
-              centered
-              className="img"
-            />
-            <Form.Item label="Name" name="name" className="formName">
-              <Input className="clientInput" type="name" />
-            </Form.Item>
-            <Form.Item label="Description" name="description" className="formDescription">
-              <TextArea className="clientInput" type="description" />
-            </Form.Item>
-            <Form.Item>
-              <Button className="saveBtn" htmlType="submit">
-                Save
-              </Button>
-            </Form.Item>
-          </Form>
         </div>
       </Grid.Column>
     );
@@ -113,7 +178,7 @@ export default function EditSkills() {
         {skills.map((skill) => {
           return skillCard(skill);
         })}
-        {skillForm()}
+        {SkillForm(skills, setSkills, fileList)}
       </Grid>
     </section>
   );

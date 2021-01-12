@@ -124,7 +124,7 @@ export default function EditResume() {
         <span className="position">{experience.position}</span>
         <p className="description">{experience.description}</p>
         <button
-          classNmae="removeBtn"
+          className="removeBtn"
           onClick={() => {
             removeExperience(experience.title);
           }}
