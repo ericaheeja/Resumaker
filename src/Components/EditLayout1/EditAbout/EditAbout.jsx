@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Card, Button, Image, Grid } from "semantic-ui-react";
+import { Card, Image, Grid } from "semantic-ui-react";
+import { Button } from "antd";
 import sampleMe from "../../../Assets/sample.jpg";
-
-let initialNumOfColumns;
-
-const getInitialNumOfColumns = () => {
-  window.innerWidth < 1024 ? (initialNumOfColumns = 1) : (initialNumOfColumns = 2);
-  return initialNumOfColumns;
-};
 
 export default function EditAbout() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
+
+  function getInitialNumOfColumns() {
+    let initialNumOfColumns = window.innerWidth < 1024 ? 1 : 2;
+    return initialNumOfColumns;
+  }
 
   const resizeScreen = () => {
     window.innerWidth >= 1024 ? setNumOfColumns(2) : setNumOfColumns(1);
@@ -34,8 +33,8 @@ export default function EditAbout() {
                 me, I am the person who make your company bigger.
               </p>
               <div className="buttons">
-                <Button primary>HIRE ME</Button>
-                <Button secondary>DOWNLOAD CV</Button>
+                <Button>HIRE ME</Button>
+                <Button>DOWNLOAD CV</Button>
               </div>
             </Card.Content>
           </Grid.Column>

@@ -2,17 +2,15 @@ import React, { useState, useRef } from "react";
 import { Image, Grid } from "semantic-ui-react";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Upload, message } from "antd";
+import { onFinishWorksForm } from "../../../helper/imageUpload";
 import ImgCrop from "antd-img-crop";
 
-let initialNumOfColumns;
-
 const getInitialNumOfColumns = () => {
+  let initialNumOfColumns = 3;
   if (window.innerWidth <= 425) {
     initialNumOfColumns = 1;
   } else if (window.innerWidth <= 768) {
     initialNumOfColumns = 2;
-  } else {
-    initialNumOfColumns = 3;
   }
   return initialNumOfColumns;
 };
@@ -41,20 +39,20 @@ function beforeUpload(file) {
   return isJpgOrPng && isLt2M;
 }
 
-function SkillForm(skills, setSkills, fileList) {
+function SkillForm(skills, setSkills, fileList, fileListForUpload) {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
 
-  const handleChange = (info) => {
-    if (info.file.status === "uploading") {
-      console.log(info.file.status);
+  const handleChange = (photo) => {
+    if (photo.file.status === "uploading") {
       setLoading(true);
       return;
     }
-    if (info.file.status === "done") {
-      console.log(info.file.status);
+    if (photo.file.status === "done") {
+      fileListForUpload.current.push(photo.file);
+      console.log(fileListForUpload.current);
       // Get this url from response in real world.
-      getBase64(info.file.originFileObj, (imageUrl) => {
+      getBase64(photo.file.originFileObj, (imageUrl) => {
         setLoading(false);
         setImageUrl(imageUrl);
       });
@@ -120,6 +118,7 @@ export default function EditSkills() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
   const [skills, setSkills] = useState([]);
   const fileList = useRef([]);
+  const fileListForUpload = useRef([]);
 
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
@@ -137,9 +136,8 @@ export default function EditSkills() {
     const removeBtn = () => {
       const updatedArr = skills.filter((e) => e.name !== skill.name);
       const findIdx = (element) => element.name === skill.name;
-      console.log(fileList.current);
-      console.log(fileList.current.findIndex(findIdx));
       fileList.current.splice(fileList.current.findIndex(findIdx), 1);
+      fileListForUpload.current.splice(fileListForUpload.current.findIndex(findIdx), 1);
       setSkills(updatedArr);
     };
 
@@ -154,14 +152,14 @@ export default function EditSkills() {
             centered
             className="img"
           />
-          <button
+          <Button
             className="removeBtn"
             onClick={() => {
               removeBtn();
             }}
           >
             remove
-          </button>
+          </Button>
           <h3 className="name">{skill.name}</h3>
           <p className="description">{skill.description}</p>
         </div>
@@ -178,8 +176,15 @@ export default function EditSkills() {
         {skills.map((skill) => {
           return skillCard(skill);
         })}
-        {SkillForm(skills, setSkills, fileList)}
+        {SkillForm(skills, setSkills, fileList, fileListForUpload)}
       </Grid>
+      <Button
+        onClick={() => {
+          onFinishWorksForm(fileListForUpload.current);
+        }}
+      >
+        Upload
+      </Button>
     </section>
   );
 }

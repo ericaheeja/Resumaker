@@ -42,8 +42,8 @@ export default function MainLayout1() {
       <About />
       <Skills />
       {topButtonVisible ? (
-        <div class="ui fixed top sticky topButton">
-          <button class="ui icon button" onClick={onClickHandler}>
+        <div className="ui fixed top sticky topButton">
+          <button className="ui icon button" onClick={onClickHandler}>
             top
           </button>
         </div>

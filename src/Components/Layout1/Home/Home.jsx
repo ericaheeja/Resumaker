@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <section className="navbar">
-      <div class="ui fixed top sticky">
+      <div className="ui fixed top sticky">
         <Segment inverted>
           <a className="bars" onClick={navbarClick}>
             <Icon name="bars" />

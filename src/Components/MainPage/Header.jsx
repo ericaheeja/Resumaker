@@ -1,22 +1,6 @@
 import React, { useState } from "react";
-
-import { Grid, Segment, Menu } from "semantic-ui-react";
-
-function Button(props) {
-  const { text, onclick } = props;
-  const style = {
-    borderRadius: "27px",
-    color: "##6d7784",
-    border: "1px solid #e2e4e6",
-    backgroundColor: "whitesmoke",
-    padding: "10px 25px",
-  };
-  return (
-    <button onclick={onclick} style={style}>
-      {text}
-    </button>
-  );
-}
+import Button from "../commonComponents/Button";
+import { Grid, Menu } from "semantic-ui-react";
 
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
@@ -48,7 +32,7 @@ export default function Header() {
           </Menu>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          <Button text={"Sign In"} onclick={null} />
+          <Button text={"Sign In"} onClick={null} />
         </Grid.Column>
       </Grid>
     </div>
