@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Image, Grid } from "semantic-ui-react";
-import jsImg from "../../../Assets/tech/javascript.png";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Upload, message } from "antd";
 import ImgCrop from "antd-img-crop";
@@ -56,7 +55,6 @@ function SkillForm(skills, setSkills, fileList) {
       console.log(info.file.status);
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, (imageUrl) => {
-        fileList.current.push(imageUrl);
         setLoading(false);
         setImageUrl(imageUrl);
       });
@@ -77,6 +75,7 @@ function SkillForm(skills, setSkills, fileList) {
       description: values.description,
     };
     const newSkills = [...skills, newSkill];
+    fileList.current.push(imageUrl);
     setImageUrl(null);
     setSkills(newSkills);
   };
@@ -86,7 +85,7 @@ function SkillForm(skills, setSkills, fileList) {
   return (
     <Grid.Column className="skillCard" key={skills.length}>
       <div className="contents">
-        {/* <ImgCrop rotate shape={"round"} modalWidth={520}> */}
+        {/* <ImgCrop rotate shape={"round"} > */}
         <Upload
           name="avatar"
           listType="picture-card"
@@ -122,8 +121,6 @@ export default function EditSkills() {
   const [skills, setSkills] = useState([]);
   const fileList = useRef([]);
 
-  console.log(fileList.current);
-
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
       setNumOfColumns(1);
@@ -139,6 +136,10 @@ export default function EditSkills() {
   const skillCard = (skill) => {
     const removeBtn = () => {
       const updatedArr = skills.filter((e) => e.name !== skill.name);
+      const findIdx = (element) => element.name === skill.name;
+      console.log(fileList.current);
+      console.log(fileList.current.findIndex(findIdx));
+      fileList.current.splice(fileList.current.findIndex(findIdx), 1);
       setSkills(updatedArr);
     };
 
