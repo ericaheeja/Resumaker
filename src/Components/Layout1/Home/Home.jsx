@@ -85,9 +85,9 @@ export default function Home() {
                 </Menu>
               ) : null}
             </div>
-            {/* <Link to="/editLayout1">
+            <Link to="/editLayout1">
               <button>Use This Template</button>
-            </Link> */}
+            </Link>
           </Segment>
         </div>
       </section>
