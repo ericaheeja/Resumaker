@@ -1,14 +1,17 @@
-import react from "react";
-import { Button } from "semantic-ui-react";
+import React from "react";
+import Button from "../commonComponents/Button";
 
 export default function Landing() {
+  const title = `Beautiful portfolio websites
+  Create your own for free.`;
+  const subtitle = `We provides your own link to access your product.`;
+
   return (
     <div className="Landing">
       <div className="content">
-        <h2>Beautiful portfolio websites</h2>
-        <h2>Create your own for free.</h2>
-        <p>We provides your own link to access your product.</p>
-        <Button className="startBtn">Get Started Free</Button>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+        <Button text={"Get Started Free"} />
       </div>
     </div>
   );
