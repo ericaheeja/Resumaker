@@ -4,6 +4,7 @@ import Portfolio from "./Portfolio/Portfolio";
 import Resume from "./Resume/Resume";
 import About from "./About/About";
 import Skills from "./Skills/Skills";
+import Contact from "./Contact/Contact";
 
 let initialTopButtonVisible;
 
@@ -48,6 +49,7 @@ export default function MainLayout1() {
           </button>
         </div>
       ) : null}
+      <Contact />
     </div>
   );
 }
