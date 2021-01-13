@@ -3,7 +3,7 @@ import { Grid, Card, Image } from "semantic-ui-react";
 import { Form, Input, Button, Upload } from "antd";
 import bookitojpg from "../../../Assets/bookito.jpg";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { dummyRequest, getBase64, beforeUpload, onFinishWorksForm } from "../helper/imageUpload";
+import { dummyRequest, getBase64, beforeUpload, uploadDataWithImg } from "../helper/imageUpload";
 
 const PortfolioForm = (portfolios, setPortfolios) => {
   const [loading, setLoading] = useState(false);
@@ -122,7 +122,7 @@ export default function EditPortfolio() {
       <h2 className="portfolioTitle">PORTFOLIO</h2>
       <Button
         onClick={() => {
-          onFinishWorksForm(portfolios, "kangmin", "portfolios");
+          uploadDataWithImg(portfolios, "kangmin", "portfolios");
         }}
       >
         haha

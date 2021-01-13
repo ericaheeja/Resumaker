@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import {Image, Grid} from "semantic-ui-react";
-import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
-import {Form, Input, Button, Upload} from "antd";
-import {dummyRequest, getBase64, beforeUpload, onFinishWorksForm} from "../helper/imageUpload";
+import React, { useState } from "react";
+import { Grid } from "semantic-ui-react";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Upload, Image } from "antd";
+import { dummyRequest, getBase64, beforeUpload, uploadDataWithImg } from "../helper/imageUpload";
 import ImgCrop from "antd-img-crop";
 
 function SkillForm(skills, setSkills) {
@@ -26,8 +26,8 @@ function SkillForm(skills, setSkills) {
 
   const uploadButton = (
     <div>
-      {loading ? <LoadingOutlined/> : <PlusOutlined/>}
-      <div style={{marginTop: 8}}>Upload</div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
 
@@ -44,7 +44,7 @@ function SkillForm(skills, setSkills) {
     setOriginFile(null);
   };
 
-  const {TextArea} = Input;
+  const { TextArea } = Input;
 
   return (
     <Grid.Column className="skillCard" key={skills.length}>
@@ -60,7 +60,7 @@ function SkillForm(skills, setSkills) {
           onChange={handleChange}
         >
           {imageRef !== null ? (
-            <img src={imageRef} alt="avatar" style={{width: "100%"}}/>
+            <Image src={imageRef} alt="avatar" style={{ width: "100%" }} />
           ) : (
             uploadButton
           )}
@@ -68,10 +68,10 @@ function SkillForm(skills, setSkills) {
         {/* </ImgCrop> */}
         <Form className="addForm" onFinish={addSkill}>
           <Form.Item label="Name" name="name" className="formName">
-            <Input className="clientInput" type="name"/>
+            <Input className="clientInput" type="name" />
           </Form.Item>
           <Form.Item label="Description" name="description" className="formDescription">
-            <TextArea className="clientInput" type="description"/>
+            <TextArea className="clientInput" type="description" />
           </Form.Item>
           <Form.Item>
             <Button className="saveBtn" htmlType="submit">
@@ -123,7 +123,7 @@ export default function EditSkills() {
             src={skill.img}
             size="small"
             circular
-            style={{width: "75px", height: "75px"}}
+            style={{ width: "75px", height: "75px" }}
             centered
             className="img"
           />
@@ -146,7 +146,7 @@ export default function EditSkills() {
     <section className="SkillsContainer" id="SKILLS">
       <Button
         onClick={() => {
-          onFinishWorksForm(skills, "kangmin", "skills");
+          uploadDataWithImg(skills, "kangmin", "skills");
         }}
       >
         haha

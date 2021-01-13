@@ -1,27 +1,28 @@
 import { firebaseOrigin, firebaseStore } from "../../../Config/firebase";
 import { message } from "antd";
 
-export const onFinishWorksForm = (fileList, userName, fieldName) => {
+export const uploadDataOnlyText = async (data, userName, fieldName) => {
+  const userRef = firebaseStore.doc(`users/layout1/${userName}`);
+  const userData = await userRef.get();
+  console.log(data);
+  if (!userData.exists) {
+    userRef.set({ [fieldName]: data });
+  } else {
+    userRef.update({ [fieldName]: data });
+  }
+};
+
+export const uploadDataWithImg = (fileList, userName, fieldName) => {
   const promises = [];
   const data = [];
 
-  const updateFireStorage = () => {
-    firebaseStore
-      .collection("users")
-      .doc(userName)
-      .update({ [fieldName]: data })
-      .then(function () {
-        return 1;
-      });
-  };
-
   fileList.forEach((file) => {
-    const { name, description, originFile } = file;
+    const { originFile } = file;
     console.log(file);
     const uploadTask = firebaseOrigin
       .storage()
       .ref()
-      .child(`images/${userName}/${fieldName}/${originFile.originFileObj.uid}`)
+      .child(`images/layout1/${userName}/${fieldName}/${originFile.originFileObj.uid}`)
       .put(originFile.originFileObj);
     promises.push(uploadTask);
     uploadTask.on(
@@ -41,16 +42,15 @@ export const onFinishWorksForm = (fileList, userName, fieldName) => {
           ...file,
           url: downloadURL,
         });
-        if (data.length === promises.length) {
-          return updateFireStorage();
-        }
       }
     );
   });
-  updateFireStorage();
   // }
   Promise.all(promises)
     .then(function () {
+      if (data.length === promises.length) {
+        return uploadDataOnlyText(data, userName, fieldName);
+      }
       console.log("complete");
     })
     .catch((err) => console.log(err.code));
