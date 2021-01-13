@@ -1,50 +1,69 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Grid, Card, Image } from "semantic-ui-react";
-import { Input, Button, Form } from "antd";
+import { Form, Input, Button, Upload } from "antd";
 import bookitojpg from "../../../Assets/bookito.jpg";
-import resumakerpng from "../../../Assets/resumaker.png";
-import mepng from "../../../Assets/me.png";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { dummyRequest, getBase64, beforeUpload, onFinishWorksForm } from "../helper/imageUpload";
 
-// const portfolio = [
-//   {
-//     image: bookitojpg,
-//     name: "Bookito",
-//     period: "December 2020 - Present",
-//     description: "Bookito is an app that helps users to find beauticians easily.",
-//   },
-//   {
-//     image: resumakerpng,
-//     name: "Resumaker",
-//     period: "March 2019 - May 2020",
-//     description: "Resumaker is a website that provide people free templates.",
-//   },
-//   {
-//     image: mepng,
-//     name: "Random project",
-//     period: "Apr 2018 - October 2019",
-//     description: "Random project that shows as a sample project.",
-//   },
-// ];
+const PortfolioForm = (portfolios, setPortfolios) => {
+  const [loading, setLoading] = useState(false);
+  const [imageRef, setImageRef] = useState(null);
+  const [originFile, setOriginFile] = useState(null);
 
-const portfolioForm = (portfolios, setPortfolios) => {
+  const handleChange = (photo) => {
+    if (photo.file.status === "uploading") {
+      setLoading(true);
+    }
+    if (photo.file.status === "done") {
+      // Get this url from response in real world.
+      getBase64(photo.file.originFileObj, (imageUrl) => {
+        setImageRef(imageUrl);
+        setOriginFile(photo.file);
+        setLoading(false);
+      });
+    }
+  };
+
+  const uploadButton = (
+    <div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
+
   const addPortfolio = (value) => {
     const newPortfolio = {
-      img: bookitojpg,
+      img: imageRef,
       name: value.name,
       period: value.period,
       description: value.description,
+      originFile: originFile,
     };
 
     const newPortfolios = [...portfolios, newPortfolio];
     setPortfolios(newPortfolios);
+    setImageRef(null);
+    setOriginFile(null);
   };
 
   return (
-    <Card>
+    <Card key={portfolios.length}>
+      <Upload
+        name="avatar"
+        listType="picture-card"
+        className="avatar-uploader"
+        showUploadList={false}
+        customRequest={dummyRequest}
+        beforeUpload={beforeUpload}
+        onChange={handleChange}
+      >
+        {imageRef !== null ? (
+          <img src={imageRef} alt="avatar" style={{ width: "100%" }} />
+        ) : (
+          uploadButton
+        )}
+      </Upload>
       <Form className="portfolioForm" onFinish={addPortfolio}>
-        <Form.Item name="img">
-          <Image src={bookitojpg} height="280px" />
-        </Form.Item>
         <Card.Content>
           <Card.Header>
             <Form.Item label="portfolioName" name="name" className="portfolioName">
@@ -78,14 +97,14 @@ export default function EditPortfolio() {
   const [portfolios, setPortfolios] = useState([]);
 
   const portfolioCard = (project) => {
-    const removePortfolio = (portfolio) => {
+    const removePortfolio = () => {
       const updatedPortfolio = portfolios.filter((e) => e.name !== project.name);
       setPortfolios(updatedPortfolio);
     };
 
     return (
       <Card key={project.name}>
-        <Image src={bookitojpg} height="280px" />
+        <Image src={project.img} height="280px" />
         <Card.Content>
           <Card.Header>{project.name}</Card.Header>
           <Card.Meta>{project.period}</Card.Meta>
@@ -101,12 +120,19 @@ export default function EditPortfolio() {
   return (
     <section className="PortfolioContainer" id="PORTFOLIO">
       <h2 className="portfolioTitle">PORTFOLIO</h2>
+      <Button
+        onClick={() => {
+          onFinishWorksForm(portfolios, "kangmin", "portfolios");
+        }}
+      >
+        haha
+      </Button>
       <div className="portfolios">
         <Grid columns={3} textAlign="center">
           {portfolios.map((project) => {
             return portfolioCard(project);
           })}
-          {portfolioForm(portfolios, setPortfolios)}
+          {PortfolioForm(portfolios, setPortfolios, portfolios.imageRef)}
         </Grid>
       </div>
     </section>

@@ -1,51 +1,14 @@
-import React, { useState } from "react";
-import { Image, Grid } from "semantic-ui-react";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { Form, Input, Button, Upload, message } from "antd";
-import { onFinishWorksForm } from "./imageUpload";
+import React, {useState} from "react";
+import {Image, Grid} from "semantic-ui-react";
+import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
+import {Form, Input, Button, Upload} from "antd";
+import {dummyRequest, getBase64, beforeUpload, onFinishWorksForm} from "../helper/imageUpload";
 import ImgCrop from "antd-img-crop";
-
-const getInitialNumOfColumns = () => {
-  let initialNumOfColumns = 3;
-  if (window.innerWidth <= 425) {
-    initialNumOfColumns = 1;
-  } else if (window.innerWidth <= 768) {
-    initialNumOfColumns = 2;
-  }
-  return initialNumOfColumns;
-};
-
-const dummyRequest = ({ file, onSuccess }) => {
-  setTimeout(() => {
-    onSuccess("ok");
-  }, 0);
-};
-
-function getBase64(img, callback) {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-}
-
-function beforeUpload(file) {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-}
 
 function SkillForm(skills, setSkills) {
   const [loading, setLoading] = useState(false);
   const [imageRef, setImageRef] = useState(null);
   const [originFile, setOriginFile] = useState(null);
-
-  console.log(imageRef);
-  console.log(originFile);
 
   const handleChange = (photo) => {
     if (photo.file.status === "uploading") {
@@ -63,8 +26,8 @@ function SkillForm(skills, setSkills) {
 
   const uploadButton = (
     <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
+      {loading ? <LoadingOutlined/> : <PlusOutlined/>}
+      <div style={{marginTop: 8}}>Upload</div>
     </div>
   );
 
@@ -81,7 +44,7 @@ function SkillForm(skills, setSkills) {
     setOriginFile(null);
   };
 
-  const { TextArea } = Input;
+  const {TextArea} = Input;
 
   return (
     <Grid.Column className="skillCard" key={skills.length}>
@@ -97,7 +60,7 @@ function SkillForm(skills, setSkills) {
           onChange={handleChange}
         >
           {imageRef !== null ? (
-            <img src={imageRef} alt="avatar" style={{ width: "100%" }} />
+            <img src={imageRef} alt="avatar" style={{width: "100%"}}/>
           ) : (
             uploadButton
           )}
@@ -105,10 +68,10 @@ function SkillForm(skills, setSkills) {
         {/* </ImgCrop> */}
         <Form className="addForm" onFinish={addSkill}>
           <Form.Item label="Name" name="name" className="formName">
-            <Input className="clientInput" type="name" />
+            <Input className="clientInput" type="name"/>
           </Form.Item>
           <Form.Item label="Description" name="description" className="formDescription">
-            <TextArea className="clientInput" type="description" />
+            <TextArea className="clientInput" type="description"/>
           </Form.Item>
           <Form.Item>
             <Button className="saveBtn" htmlType="submit">
@@ -124,6 +87,16 @@ function SkillForm(skills, setSkills) {
 export default function EditSkills() {
   const [numOfColumns, setNumOfColumns] = useState(getInitialNumOfColumns());
   const [skills, setSkills] = useState([]);
+
+  function getInitialNumOfColumns() {
+    let initialNumOfColumns = 3;
+    if (window.innerWidth <= 425) {
+      initialNumOfColumns = 1;
+    } else if (window.innerWidth <= 768) {
+      initialNumOfColumns = 2;
+    }
+    return initialNumOfColumns;
+  }
 
   const resizeScreen = () => {
     if (window.innerWidth <= 425) {
@@ -150,7 +123,7 @@ export default function EditSkills() {
             src={skill.img}
             size="small"
             circular
-            style={{ width: "75px", height: "75px" }}
+            style={{width: "75px", height: "75px"}}
             centered
             className="img"
           />
@@ -173,7 +146,7 @@ export default function EditSkills() {
     <section className="SkillsContainer" id="SKILLS">
       <Button
         onClick={() => {
-          onFinishWorksForm(skills, "test");
+          onFinishWorksForm(skills, "kangmin", "skills");
         }}
       >
         haha

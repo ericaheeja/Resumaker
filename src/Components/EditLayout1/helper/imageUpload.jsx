@@ -1,14 +1,15 @@
 import { firebaseOrigin, firebaseStore } from "../../../Config/firebase";
+import { message } from "antd";
 
-export const onFinishWorksForm = (fileList, userName) => {
+export const onFinishWorksForm = (fileList, userName, fieldName) => {
   const promises = [];
-  const skills = [];
+  const data = [];
 
   const updateFireStorage = () => {
     firebaseStore
       .collection("users")
       .doc(userName)
-      .update({ skills: skills })
+      .update({ [fieldName]: data })
       .then(function () {
         return 1;
       });
@@ -20,7 +21,7 @@ export const onFinishWorksForm = (fileList, userName) => {
     const uploadTask = firebaseOrigin
       .storage()
       .ref()
-      .child(`images/${userName}/${originFile.originFileObj.uid}`)
+      .child(`images/${userName}/${fieldName}/${originFile.originFileObj.uid}`)
       .put(originFile.originFileObj);
     promises.push(uploadTask);
     uploadTask.on(
@@ -34,12 +35,13 @@ export const onFinishWorksForm = (fileList, userName) => {
       (error) => console.log(error),
       async () => {
         const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-        skills.push({
-          name: name,
-          description: description,
+        delete file["originFile"];
+        delete file["img"];
+        data.push({
+          ...file,
           url: downloadURL,
         });
-        if (skills.length === promises.length) {
+        if (data.length === promises.length) {
           return updateFireStorage();
         }
       }
@@ -52,4 +54,28 @@ export const onFinishWorksForm = (fileList, userName) => {
       console.log("complete");
     })
     .catch((err) => console.log(err.code));
+};
+
+export const dummyRequest = ({ file, onSuccess }) => {
+  setTimeout(() => {
+    onSuccess("ok");
+  }, 0);
+};
+
+export const getBase64 = (img, callback) => {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => callback(reader.result));
+  reader.readAsDataURL(img);
+};
+
+export const beforeUpload = (file) => {
+  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  if (!isJpgOrPng) {
+    message.error("You can only upload JPG/PNG file!");
+  }
+  const isLt2M = file.size / 1024 / 1024 < 2;
+  if (!isLt2M) {
+    message.error("Image must smaller than 2MB!");
+  }
+  return isJpgOrPng && isLt2M;
 };
