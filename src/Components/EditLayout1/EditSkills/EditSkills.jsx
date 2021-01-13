@@ -169,6 +169,13 @@ export default function EditSkills() {
 
   return (
     <section className="SkillsContainer" id="SKILLS">
+      <Button
+        onClick={() => {
+          onFinishWorksForm(fileListForUpload.current);
+        }}
+      >
+        haha
+      </Button>
       <div className="title">
         <h2>Skills</h2>
       </div>
@@ -178,13 +185,6 @@ export default function EditSkills() {
         })}
         {SkillForm(skills, setSkills, fileList, fileListForUpload)}
       </Grid>
-      <Button
-        onClick={() => {
-          onFinishWorksForm(fileListForUpload.current);
-        }}
-      >
-        Upload
-      </Button>
     </section>
   );
 }

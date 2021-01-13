@@ -1,13 +1,13 @@
 import { firebaseOrigin, firebaseStore } from "../Config/firebase";
 
-export const onFinishWorksForm = (fileList) => {
+export const onFinishWorksForm = (fileList, userName) => {
   const promises = [];
   const photoURLs = [];
 
   const updateFireStorage = () => {
     firebaseStore
       .collection("users")
-      .doc("test")
+      .doc(userName)
       .update({ works: photoURLs })
       .then(function () {
         return 1;
@@ -18,7 +18,7 @@ export const onFinishWorksForm = (fileList) => {
     const uploadTask = firebaseOrigin
       .storage()
       .ref()
-      .child(`images/test/${file.name}`)
+      .child(`images/${userName}/${file.name}`)
       .put(file.originFileObj);
     promises.push(uploadTask);
     uploadTask.on(
