@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
-import { Icon, Menu, Segment } from "semantic-ui-react";
+import { Icon, Menu, Segment, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import userPicture from "../../../Assets/me.png";
 
 export default function Home() {
   const activeItem = useRef("home");
@@ -41,53 +42,58 @@ export default function Home() {
   };
 
   return (
-    <section className="navbar">
-      <div className="ui fixed top sticky">
-        <Segment inverted>
-          <a className="bars" onClick={navbarClick}>
-            <Icon name="bars" />
-          </a>
-          <div className="menuItem" id="menuItem">
-            {open ? (
-              <Menu inverted secondary>
-                <Menu.Item
-                  name="HOME"
-                  active={activeItem.current === "HOME"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="PORTFOLIO"
-                  active={activeItem.current === "PORTFOLIO"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="RESUME"
-                  active={activeItem.current === "RESUME"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="ABOUT"
-                  active={activeItem.current === "ABOUT"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="SKILLS"
-                  active={activeItem.current === "SKILLS"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="CONTACT"
-                  active={activeItem.current === "CONTACT"}
-                  onClick={handleItemClick}
-                />
-              </Menu>
-            ) : null}
-          </div>
-          <Link to="/editLayout1">
-            <button>Use This Template</button>
-          </Link>
-        </Segment>
-      </div>
-    </section>
+    <>
+      <section className="navbar">
+        <div className="ui fixed top sticky">
+          <Segment inverted>
+            <a className="bars" onClick={navbarClick}>
+              <Icon name="bars" />
+            </a>
+            <div className="menuItem" id="menuItem">
+              {open ? (
+                <Menu inverted secondary>
+                  <Menu.Item
+                    name="HOME"
+                    active={activeItem.current === "HOME"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="PORTFOLIO"
+                    active={activeItem.current === "PORTFOLIO"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="RESUME"
+                    active={activeItem.current === "RESUME"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="ABOUT"
+                    active={activeItem.current === "ABOUT"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="SKILLS"
+                    active={activeItem.current === "SKILLS"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="CONTACT"
+                    active={activeItem.current === "CONTACT"}
+                    onClick={handleItemClick}
+                  />
+                </Menu>
+              ) : null}
+            </div>
+            {/* <Link to="/editLayout1">
+              <button>Use This Template</button>
+            </Link> */}
+          </Segment>
+        </div>
+      </section>
+      <section className="userPicture">
+        <Image src={userPicture} />
+      </section>
+    </>
   );
 }
