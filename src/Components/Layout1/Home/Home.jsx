@@ -43,7 +43,10 @@ export default function Home() {
 
   return (
     <>
-      <section className="navbar">
+      <section
+        className="navbar"
+        style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
+      >
         <div className="ui fixed top sticky">
           <Segment inverted>
             <a className="bars" onClick={navbarClick}>
@@ -91,9 +94,13 @@ export default function Home() {
           </Segment>
         </div>
       </section>
-      <section className="userPicture">
-        <Image src={userPicture} />
-      </section>
+      <div
+        className="userPicture"
+        // style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
+        // style={{ height: "800px", backgroundColor: "#4c516d" }}
+      >
+        {/* <Image src={userPicture} /> */}
+      </div>
     </>
   );
 }
