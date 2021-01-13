@@ -1,25 +1,27 @@
-import { firebaseOrigin, firebaseStore } from "../Config/firebase";
+import { firebaseOrigin, firebaseStore } from "../../../Config/firebase";
 
 export const onFinishWorksForm = (fileList, userName) => {
   const promises = [];
-  const photoURLs = [];
+  const skills = [];
 
   const updateFireStorage = () => {
     firebaseStore
       .collection("users")
       .doc(userName)
-      .update({ works: photoURLs })
+      .update({ skills: skills })
       .then(function () {
         return 1;
       });
   };
 
   fileList.forEach((file) => {
+    const { name, description, originFile } = file;
+    console.log(file);
     const uploadTask = firebaseOrigin
       .storage()
       .ref()
-      .child(`images/${userName}/${file.name}`)
-      .put(file.originFileObj);
+      .child(`images/${userName}/${originFile.originFileObj.uid}`)
+      .put(originFile.originFileObj);
     promises.push(uploadTask);
     uploadTask.on(
       firebaseOrigin.storage.TaskEvent.STATE_CHANGED,
@@ -32,13 +34,12 @@ export const onFinishWorksForm = (fileList, userName) => {
       (error) => console.log(error),
       async () => {
         const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-        photoURLs.push({
-          uid: file.uid,
-          name: file.name,
-          status: "done",
+        skills.push({
+          name: name,
+          description: description,
           url: downloadURL,
         });
-        if (photoURLs.length === promises.length) {
+        if (skills.length === promises.length) {
           return updateFireStorage();
         }
       }
