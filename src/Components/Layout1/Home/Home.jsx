@@ -27,8 +27,7 @@ export default function Home() {
   const handleItemClick = (name) => {
     activeItem.current = name.target.innerHTML;
     const skills = document.getElementById(activeItem.current);
-    const navHeight = document.getElementsByClassName("ui inverted segment")[0]
-      .clientHeight;
+    const navHeight = document.getElementsByClassName("ui inverted segment")[0].clientHeight;
     if (skills === null) {
       window.scroll(0, navHeight);
     }
@@ -97,9 +96,19 @@ export default function Home() {
           <Button text="Use This Template"></Button>
         </div>
       </Link>
-      <section className="userPicture">
-        <Image src={userPicture} />
-      </section>
+      <div
+        className="userPicture"
+        // style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
+        // style={{ height: "800px", backgroundColor: "#4c516d" }}
+      >
+        {/* <Image src={userPicture} /> */}
+        <h1>
+          Hello, I'm <strong className="userNameHeader">Resume Maker</strong>
+        </h1>
+        <strong className="userNameHeader" id="thisIsMyResume">
+          AND THIS IS MY RESUME
+        </strong>
+      </div>
     </>
   );
 }
