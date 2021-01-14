@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import { Form, Input, Button } from "antd";
-import { firebaseStore } from "../../../Config/firebase";
+import { uploadDataOnlyText } from "../helper/imageUpload";
 
 const experienceForm = (experiences, setExperiences) => {
   const addExperience = (value) => {
@@ -12,9 +12,6 @@ const experienceForm = (experiences, setExperiences) => {
       description: value.description,
     };
     const newExperiences = [...experiences, newExperience];
-
-    const firebaseReference = firebaseStore.doc("experience/sample1");
-    firebaseReference.set(newExperience);
 
     setExperiences(newExperiences);
   };
@@ -123,14 +120,14 @@ export default function EditResume() {
         <h3 className="title">{experience.title}</h3>
         <span className="position">{experience.position}</span>
         <p className="description">{experience.description}</p>
-        <button
+        <Button
           className="removeBtn"
           onClick={() => {
             removeExperience(experience.title);
           }}
         >
           Remove
-        </button>
+        </Button>
       </div>
     );
   };
@@ -161,6 +158,14 @@ export default function EditResume() {
 
   return (
     <section id="RESUME" className="resumeContainer">
+      <Button
+        onClick={() => {
+          uploadDataOnlyText(experiences, "kangmin", "experiences");
+          uploadDataOnlyText(educations, "kangmin", "educations");
+        }}
+      >
+        Upload
+      </Button>
       <h2 className="title">RESUME</h2>
       <Grid columns={col} padded="horizontally">
         <Grid.Column>
