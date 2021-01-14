@@ -43,10 +43,7 @@ export default function Home() {
 
   return (
     <>
-      <section
-        className="navbar"
-        style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
-      >
+      <section className="navbar">
         <div className="ui fixed top sticky">
           <Segment inverted>
             <a className="bars" onClick={navbarClick}>
@@ -100,6 +97,12 @@ export default function Home() {
         // style={{ height: "800px", backgroundColor: "#4c516d" }}
       >
         {/* <Image src={userPicture} /> */}
+        <h1>
+          Hello, I'm <strong className="userNameHeader">Resume Maker</strong>
+        </h1>
+        <strong className="userNameHeader" id="thisIsMyResume">
+          AND THIS IS MY RESUME
+        </strong>
       </div>
     </>
   );
