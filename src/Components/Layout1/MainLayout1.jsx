@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Home from "./Home/Home";
 import Portfolio from "./Portfolio/Portfolio";
 import Resume from "./Resume/Resume";
@@ -6,15 +6,8 @@ import About from "./About/About";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
 
-let initialTopButtonVisible;
-
 const getInitialTopButtonVisible = () => {
-  if (window.innerWidth <= 768) {
-    initialTopButtonVisible = true;
-  } else {
-    initialTopButtonVisible = false;
-  }
-  return initialTopButtonVisible;
+  return window.innerWidth <= 768;
 };
 
 export default function MainLayout1() {
