@@ -29,6 +29,13 @@
   }
 }
 
+.useThisTemplateButton {
+  position: fixed;
+  right: 5%;
+  top: 12.5%;
+  z-index: 100;
+}
+
 .userPicture {
   display: flex;
   justify-content: center;
