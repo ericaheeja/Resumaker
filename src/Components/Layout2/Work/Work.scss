@@ -1,0 +1,52 @@
+.workContainer {
+    
+    .contents {
+        width: 100%;
+        padding: 5vh 7.5vw;
+        margin: auto;
+        text-align: center;
+        font-family: "Quicksand", Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        
+
+        .imageCard {
+            margin: 5vh 0;
+
+            .imgWrapper {
+                width: 90%;
+                height: 50vw;
+                max-width: 400px;
+                min-height: 200px;
+                max-height: 275px;
+                margin: auto;
+            }
+
+            .title {
+                margin-top: 2vh;
+                font-weight: 800;
+                font-size: 1.4em;
+                color: #001529;
+                line-height: 0;
+                font-style: italic;
+            }
+
+            .subtitle {
+                line-height: 0;
+                font-size: 0.8em;
+            }
+        }
+
+        h4 {
+            color: #000;
+            text-align: left;
+            margin-top: 10vh;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.8;
+            font-family: "Playfair Display", Georgia, serif;
+            margin-bottom: 10vh;
+        }
+    }
+}

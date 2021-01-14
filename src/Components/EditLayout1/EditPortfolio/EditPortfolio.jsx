@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Card, Image } from "semantic-ui-react";
 import { Form, Input, Button, Upload } from "antd";
-import bookitojpg from "../../../Assets/bookito.jpg";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { dummyRequest, getBase64, beforeUpload, uploadDataWithImg } from "../helper/imageUpload";
 

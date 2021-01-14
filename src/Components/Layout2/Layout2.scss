@@ -1,0 +1,48 @@
+@import "~antd/dist/antd.css";
+@import "../../Mixin.scss";
+@import "./Home/Home.scss";
+@import "./About/About.scss";
+@import "./Work/Work.scss";
+
+
+
+.layout2 {
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .trigger:hover {
+    color: #1890ff;
+  }
+  
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+  
+  .ant-layout-sider-zero-width-trigger {
+
+    position: fixed;
+    top:0;
+    left:0;
+  }
+
+  .ant-layout-sider {
+    position: fixed;
+
+    @include tablePtoLaptop {
+      float:left;
+      z-index: 1001;
+    }
+  }
+
+  @include tablePtoLaptop {
+    .ant-layout {
+      margin-left: 300px;
+    }
+  }
+}
+

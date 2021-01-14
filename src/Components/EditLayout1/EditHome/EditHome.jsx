@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Icon, Menu, Segment } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 
 export default function EditHome() {
   const activeItem = useRef("home");
