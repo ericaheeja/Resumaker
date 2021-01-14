@@ -1,0 +1,30 @@
+.aboutContainer {
+
+    background-color: #e8e8e8;
+    
+    .contents {
+        width: 100%;
+        padding: 5vh 7.5vw;
+        margin: auto;
+
+        h4 {
+            margin-top: 10vh;
+            color: #000;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.8;
+            font-family: "Playfair Display", Georgia, serif;
+        }
+
+        p {
+            margin: 7vh 0;
+            font-family: "Quicksand", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+    }
+}

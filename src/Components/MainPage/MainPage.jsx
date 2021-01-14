@@ -34,7 +34,7 @@ export default function MainPage() {
 
             <Grid.Column>
               {" "}
-              <Link to="/layout1">
+              <Link to="/layout2">
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>
