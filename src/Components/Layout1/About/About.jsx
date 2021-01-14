@@ -5,7 +5,9 @@ import sampleMe from "../../../Assets/sample.jpg";
 let initialNumOfColumns;
 
 const getInitialNumOfColumns = () => {
-  window.innerWidth < 1024 ? (initialNumOfColumns = 1) : (initialNumOfColumns = 2);
+  window.innerWidth < 1024
+    ? (initialNumOfColumns = 1)
+    : (initialNumOfColumns = 2);
   return initialNumOfColumns;
 };
 
@@ -18,6 +20,10 @@ export default function About() {
 
   window.addEventListener("resize", resizeScreen);
 
+  const onClickHandler = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
+
   return (
     <section className="AboutContainer" id="ABOUT">
       <h2 className="aboutMeTitle">About Me</h2>
@@ -29,12 +35,15 @@ export default function About() {
           <Grid.Column>
             <Card.Content className="textBox">
               <p className="contents">
-                If you do not believe you can do it then you have no chance at all. I am a super
-                talented react developer. Please hire me, if you don't, you must regret. Do not miss
-                me, I am the person who make your company bigger.
+                If you do not believe you can do it then you have no chance at
+                all. I am a super talented react developer. Please hire me, if
+                you don't, you must regret. Do not miss me, I am the person who
+                make your company bigger.
               </p>
               <div className="buttons">
-                <Button primary>HIRE ME</Button>
+                <Button primary onClick={onClickHandler}>
+                  HIRE ME
+                </Button>
                 <Button secondary>DOWNLOAD CV</Button>
               </div>
             </Card.Content>

@@ -4,6 +4,7 @@ import EditPortfolio from "./EditPortfolio/EditPortfolio";
 import EditResume from "./EditResume/EditResume";
 import EditAbout from "./EditAbout/EditAbout";
 import EditSkills from "./EditSkills/EditSkills";
+import EditContact from "./EditContact/EditContact";
 
 export default function EditMainLayout1() {
   return (
@@ -13,6 +14,7 @@ export default function EditMainLayout1() {
       <EditResume />
       <EditAbout />
       <EditSkills />
+      <EditContact />
     </div>
   );
 }
