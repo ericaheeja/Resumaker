@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Icon, Menu, Segment, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import userPicture from "../../../Assets/me.png";
+import Button from "../../commonComponents/Button";
 
 export default function Home() {
   const activeItem = useRef("home");
@@ -30,8 +31,10 @@ export default function Home() {
     if (skills === null) {
       window.scroll(0, navHeight);
     }
+
     skills?.scrollIntoView(true);
     const scrolledY = window.scrollY;
+
     if (scrolledY) {
       window.scroll(0, scrolledY - navHeight);
     }
@@ -85,15 +88,27 @@ export default function Home() {
                 </Menu>
               ) : null}
             </div>
-            {/* <Link to="/editLayout1">
-              <button>Use This Template</button>
-            </Link> */}
           </Segment>
         </div>
       </section>
-      <section className="userPicture">
-        <Image src={userPicture} />
-      </section>
+      <Link to="/editLayout1">
+        <div className="useThisTemplateButton">
+          <Button text="Use This Template"></Button>
+        </div>
+      </Link>
+      <div
+        className="userPicture"
+        // style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
+        // style={{ height: "800px", backgroundColor: "#4c516d" }}
+      >
+        {/* <Image src={userPicture} /> */}
+        <h1>
+          Hello, I'm <strong className="userNameHeader">Resume Maker</strong>
+        </h1>
+        <strong className="userNameHeader" id="thisIsMyResume">
+          AND THIS IS MY RESUME
+        </strong>
+      </div>
     </>
   );
 }

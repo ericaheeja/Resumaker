@@ -11,7 +11,9 @@ const getInitialTopButtonVisible = () => {
 };
 
 export default function MainLayout1() {
-  const [topButtonVisible, setTopButtonVisible] = useState(getInitialTopButtonVisible());
+  const [topButtonVisible, setTopButtonVisible] = useState(
+    getInitialTopButtonVisible()
+  );
 
   const resizeScreen = () => {
     if (window.innerWidth <= 768) {
@@ -35,6 +37,8 @@ export default function MainLayout1() {
       <Resume />
       <About />
       <Skills />
+      <Contact />
+
       {topButtonVisible ? (
         <div className="ui fixed top sticky topButton">
           <button className="ui icon button" onClick={onClickHandler}>
@@ -42,7 +46,6 @@ export default function MainLayout1() {
           </button>
         </div>
       ) : null}
-      <Contact />
     </div>
   );
 }
