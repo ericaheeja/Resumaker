@@ -1,16 +1,23 @@
 .contact {
   color: $white;
   text-align: center;
+
+  .contactTitle {
+    color: $white;
+    font-weight: 600;
+  }
   .userInfo {
-    h4 {
-      color: #5e5a80;
-    }
     font-size: 1.2em;
     font-weight: 600;
     margin-top: 6%;
     margin-bottom: 2%;
     margin-left: 15%;
     margin-right: 15%;
+
+    h4 {
+      color: #5e5a80;
+      font-weight: 900;
+    }
 
     @include mobileL {
       margin-left: 8%;

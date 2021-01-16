@@ -4,8 +4,6 @@
 @import "./About/About.scss";
 @import "./Work/Work.scss";
 
-
-
 .layout2 {
   .trigger {
     font-size: 18px;
@@ -14,27 +12,26 @@
     cursor: pointer;
     transition: color 0.3s;
   }
-  
+
   .trigger:hover {
     color: #1890ff;
   }
-  
+
   .site-layout .site-layout-background {
     background: #fff;
   }
-  
-  .ant-layout-sider-zero-width-trigger {
 
+  .ant-layout-sider-zero-width-trigger {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
   }
 
   .ant-layout-sider {
     position: fixed;
 
     @include tablePtoLaptop {
-      float:left;
+      float: left;
       z-index: 1001;
     }
   }
@@ -45,4 +42,3 @@
     }
   }
 }
-

@@ -157,7 +157,7 @@ export default function EditResume() {
   };
 
   return (
-    <section id="RESUME" className="resumeContainer">
+    <section id="RESUME" className="editResumeContainer">
       <Button
         onClick={() => {
           uploadDataOnlyText(experiences, "kangmin", "experiences");
