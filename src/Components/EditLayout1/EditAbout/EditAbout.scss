@@ -1,64 +1,62 @@
 .AboutContainer {
-    @include mobileL {
-      width: 312px;
-    }
+  @include mobileL {
+    width: 312px;
+  }
+  @include tabletP {
+    width: 590px;
+  }
+  @include laptop {
+    width: 792px;
+  }
+  @include desktop {
+    width: 1124px;
+  }
+  width: 73.5%;
+  margin: 10% auto;
+  vertical-align: middle;
+
+  .aboutMeTitle {
+    color: $white;
+    text-align: center;
+    margin: 10% auto 10%;
     @include tabletP {
-      width: 590px;
+      margin: 10% auto 5%;
     }
-    @include laptop {
-      width: 792px;
+  }
+
+  .aboutMeContents {
+    background-color: $darkgray;
+  }
+  .textBox {
+    color: white;
+
+    .aboutMe {
+      margin-top: 1.5%;
+      font-size: 30px;
     }
-    @include desktop {
-      width: 1124px;
+
+    .contents {
+      margin-top: 1.5%;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.4);
     }
-    width: 73.5%;
-    margin: 10% auto;
-    vertical-align: middle;
-  
-    .aboutMeTitle {
+
+    .buttons {
       color: $white;
-      text-align: center;
-      margin: 10% auto 10%;
-      @include tabletP {
-        margin: 10% auto 5%;
+
+      .ui.primary.button {
+        width: 150px;
+        background-color: #bac964;
+        background: #bac964;
+        margin-right: 10px;
+        margin-bottom: 10px;
       }
-    }
-  
-    .aboutMeContents {
-      background-color: $darkgray;
-    }
-  
-    .textBox {
-      color: white;
-  
-      .aboutMe {
-        margin-top: 1.5%;
-        font-size: 30px;
-      }
-  
-      .contents {
-        margin-top: 1.5%;
-        font-size: 18px;
-        color: rgba(255, 255, 255, 0.4);
-      }
-  
-      .buttons {
-        color: $white;
-  
-        .ui.primary.button {
-          width: 150px;
-          background-color: #bac964;
-          background: #bac964;
-          margin-right: 10px;
-          margin-bottom: 10px;
-        }
-  
-        .ui.secondary.button {
-          width: 150px;
-          background-color: #6c757d;
-          background: #6c757d;
-        }
+
+      .ui.secondary.button {
+        width: 150px;
+        background-color: #6c757d;
+        background: #6c757d;
       }
     }
   }
-  
+}

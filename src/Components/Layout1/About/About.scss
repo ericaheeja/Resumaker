@@ -19,6 +19,8 @@
     color: $white;
     text-align: center;
     margin: 10% auto 10%;
+    font-weight: 600;
+
     @include tabletP {
       margin: 10% auto 5%;
     }

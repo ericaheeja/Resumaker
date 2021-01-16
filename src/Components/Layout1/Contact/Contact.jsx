@@ -9,8 +9,8 @@ import {
 
 export default function Contact() {
   return (
-    <div className="contact" id="CONTACT"> 
-      <h2>Contact Details</h2>
+    <div className="contact" id="CONTACT">
+      <h2 className="contactTitle">Contact Details</h2>
       <section className="userInfo">
         <p>
           <h4>NAME</h4>

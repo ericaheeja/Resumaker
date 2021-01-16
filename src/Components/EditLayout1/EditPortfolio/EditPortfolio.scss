@@ -1,6 +1,6 @@
 @import "../../../Mixin.scss";
 
-.PortfolioContainer {
+.editPortfolioContainer {
   .portfolioTitle {
     color: $white;
     text-align: center;
@@ -48,6 +48,29 @@
       @include desktop {
         width: 22%;
         margin: 2% 3% 2% 3%;
+      }
+
+      .ant-upload.ant-upload-select-picture-card {
+        width: 100%;
+      }
+
+      .description {
+        height: 80px;
+      }
+
+      .content {
+        padding: 6px 12px;
+        margin-bottom: 20%;
+        .ant-form-item-label {
+          text-align: left;
+          flex: 0 0 100%;
+          font-weight: 600;
+        }
+      }
+
+      .saveBtn {
+        width: 100%;
+        margin-top: 2%;
       }
     }
   }
