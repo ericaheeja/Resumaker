@@ -27,7 +27,6 @@ export default function Layout2() {
             collapsed
               ? (document.getElementById("mainContents").style.marginLeft = 0)
               : (document.getElementById("mainContents").style.marginLeft = "300px");
-            console.log(collapsed);
           }}
           width="300px"
           style={{ background: "#f2f3f7" }}
@@ -55,8 +54,7 @@ export default function Layout2() {
               <br />
               <p>HOME</p>
               <p>ABOUT</p>
-              <p>WORKS</p>
-              <p>SKILLS</p>
+              <p>{`WORKS & SKILLS`}</p>
               <p>EDUCATION</p>
               <p>EXPERIENCE</p>
               <p>CONTACT</p>
