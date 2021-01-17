@@ -35,7 +35,7 @@ const experienceForm = (experiences, setExperiences) => {
         </Form.Item>
         <Form.Item>
           <Button className="saveBtn" htmlType="submit">
-            Save
+            Done
           </Button>
         </Form.Item>
       </Form>
@@ -74,7 +74,7 @@ const educationForm = (educations, setEducations) => {
         </Form.Item>
         <Form.Item>
           <Button className="saveBtn" htmlType="submit">
-            Save
+            Done
           </Button>
         </Form.Item>
       </Form>
@@ -120,14 +120,14 @@ export default function EditResume() {
         <h3 className="title">{experience.title}</h3>
         <span className="position">{experience.position}</span>
         <p className="description">{experience.description}</p>
-        <Button
+        <button
           className="removeBtn"
           onClick={() => {
             removeExperience(experience.title);
           }}
         >
           Remove
-        </Button>
+        </button>
       </div>
     );
   };
@@ -145,7 +145,7 @@ export default function EditResume() {
         <span className="position">{education.major}</span>
         <p className="description">{education.description}</p>
         <button
-          classNmae="removeBtn"
+          className="removeBtn"
           onClick={() => {
             removeEducation(education.school);
           }}

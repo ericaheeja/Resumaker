@@ -75,7 +75,7 @@ function SkillForm(skills, setSkills) {
           </Form.Item>
           <Form.Item>
             <Button className="saveBtn" htmlType="submit">
-              Save
+              Done
             </Button>
           </Form.Item>
         </Form>
@@ -90,7 +90,7 @@ export default function EditSkills() {
 
   function getInitialNumOfColumns() {
     let initialNumOfColumns = 3;
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 426) {
       initialNumOfColumns = 1;
     } else if (window.innerWidth <= 768) {
       initialNumOfColumns = 2;
@@ -99,7 +99,7 @@ export default function EditSkills() {
   }
 
   const resizeScreen = () => {
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 426) {
       setNumOfColumns(1);
     } else if (window.innerWidth <= 768) {
       setNumOfColumns(2);
@@ -123,10 +123,13 @@ export default function EditSkills() {
             src={skill.img}
             size="small"
             circular
-            style={{ width: "75px", height: "75px" }}
+            // style={{ width: "75px", height: "75px" }}
             centered
             className="img"
           />
+
+          <h3 className="name">{skill.name}</h3>
+          <p className="description">{skill.description}</p>
           <Button
             className="removeBtn"
             onClick={() => {
@@ -135,31 +138,29 @@ export default function EditSkills() {
           >
             remove
           </Button>
-          <h3 className="name">{skill.name}</h3>
-          <p className="description">{skill.description}</p>
         </div>
       </Grid.Column>
     );
   };
 
   return (
-    <section className="SkillsContainer" id="SKILLS">
-      <Button
-        onClick={() => {
-          uploadDataWithImg(skills, "kangmin", "skills");
-        }}
-      >
-        haha
-      </Button>
-      <div className="title">
-        <h2>Skills</h2>
-      </div>
+    <section className="editSkillsContainer" id="SKILLS">
+      <h2 className="skillsTitle">Skills</h2>
       <Grid columns={numOfColumns} padded="horizontally">
         {skills.map((skill) => {
           return skillCard(skill);
         })}
         {SkillForm(skills, setSkills, skills.imageRef)}
       </Grid>
+      <div className="skillsSave">
+        <Button
+          onClick={() => {
+            uploadDataWithImg(skills, "kangmin", "skills");
+          }}
+        >
+          Save skills
+        </Button>
+      </div>
     </section>
   );
 }

@@ -14,7 +14,8 @@
   .portfolioTitle {
     color: $white;
     text-align: center;
-    margin: 5% 0 3% 0;
+    margin: 10% 0 3% 0 !important;
+    font-weight: 600;
     @include desktop {
       margin: 4.5% 0 3% 0;
     }
