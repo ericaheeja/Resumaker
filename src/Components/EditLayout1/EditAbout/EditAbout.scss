@@ -15,6 +15,17 @@
   margin: 10% auto;
   vertical-align: middle;
 
+  .aboutMeSave {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+
   .aboutMeTitle {
     color: $white;
     text-align: center;
@@ -26,12 +37,41 @@
 
   .aboutMeContents {
     background-color: $darkgray;
+
+    .ant-upload.ant-upload-select-picture-card {
+      width: 100%;
+    }
+
+    .ui.grid > .column:not(.row) {
+      padding-bottom: 0;
+    }
   }
+
+  .ant-upload.ant-upload-drag {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .ant-form-item {
+    margin-bottom: 45px;
+  }
+
+  .ant-form-item-label {
+    padding: 1px 3px;
+    text-align: left;
+    flex: 0 0 100%;
+  }
+
+  .ant-form-item-label > label {
+    color: $lilywhite;
+    font-weight: 500;
+    font-size: 15.3px;
+  }
+
   .textBox {
     color: white;
 
     .aboutMe {
-      margin-top: 1.5%;
       font-size: 30px;
     }
 

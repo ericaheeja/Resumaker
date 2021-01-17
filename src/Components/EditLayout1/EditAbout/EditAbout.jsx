@@ -81,13 +81,12 @@ export default function EditAbout() {
                 )}
               </Upload>
             </Grid.Column>
-            <Grid.Column>
-              <Card.Content className="textBox">
-                <Form.Item label="Introduction" name="description" className="formDescription">
-                  <TextArea className="clientInput" type="description" />
-                </Form.Item>
-                <Form.Item></Form.Item>
-              </Card.Content>
+            <Grid.Column className="aboutMeIntro">
+              {/* <Card.Content className="textBox"> */}
+              <Form.Item label="Introduction" name="description" className="formDescription">
+                <TextArea className="clientInput" type="description" />
+              </Form.Item>
+              {/* </Card.Content> */}
             </Grid.Column>
           </Grid>
         </Form>
@@ -119,8 +118,10 @@ export default function EditAbout() {
             other band files
           </p>
         </Dragger>
-        <Button className="saveBtn" htmlType="submit">
-          Save
+      </div>
+      <div className="aboutMeSave">
+        <Button className="saveAboutMe" htmlType="submit">
+          Save About me
         </Button>
       </div>
     </section>

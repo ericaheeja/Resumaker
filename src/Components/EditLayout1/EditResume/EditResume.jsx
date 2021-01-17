@@ -159,14 +159,7 @@ export default function EditResume() {
   return (
     <section id="RESUME" className="editResumeContainer">
       <h2 className="title">RESUME</h2>
-      <Button
-        onClick={() => {
-          uploadDataOnlyText(experiences, "kangmin", "experiences");
-          uploadDataOnlyText(educations, "kangmin", "educations");
-        }}
-      >
-        Upload
-      </Button>
+
       <Grid columns={col} padded="horizontally">
         <Grid.Column>
           <h2 className="subTitle">Experience</h2>
@@ -183,6 +176,16 @@ export default function EditResume() {
           {educationForm(educations, setEducations)}
         </Grid.Column>
       </Grid>
+      <div className="resumeSave">
+        <Button
+          onClick={() => {
+            uploadDataOnlyText(experiences, "kangmin", "experiences");
+            uploadDataOnlyText(educations, "kangmin", "educations");
+          }}
+        >
+          Save resume
+        </Button>
+      </div>
     </section>
   );
 }

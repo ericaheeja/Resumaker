@@ -131,7 +131,7 @@ export default function EditPortfolio() {
           })}
           {PortfolioForm(portfolios, setPortfolios, portfolios.imageRef)}
         </Grid>
-        <div className="portfolioUpdate">
+        <div className="portfolioSave">
           <Button
             onClick={() => {
               uploadDataWithImg(portfolios, "kangmin", "portfolios");

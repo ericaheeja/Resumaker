@@ -3,6 +3,17 @@
   margin: 0 auto;
   vertical-align: middle;
 
+  .resumeSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+
   .title {
     color: white;
     justify-content: center;
@@ -40,7 +51,7 @@
     }
 
     .period {
-      color: $lilywhite;
+      color: $black;
       font-weight: bold;
       font-size: small;
       margin-bottom: 5%;
