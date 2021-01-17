@@ -1,6 +1,16 @@
 @import "../../../Mixin.scss";
 
 .editPortfolioContainer {
+  .portfolioUpdate {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
   .portfolioTitle {
     color: $white;
     text-align: center;
@@ -68,7 +78,7 @@
         }
       }
 
-      .saveBtn {
+      .doneBtn {
         width: 100%;
         margin-top: 2%;
       }

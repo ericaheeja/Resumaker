@@ -158,6 +158,7 @@ export default function EditResume() {
 
   return (
     <section id="RESUME" className="editResumeContainer">
+      <h2 className="title">RESUME</h2>
       <Button
         onClick={() => {
           uploadDataOnlyText(experiences, "kangmin", "experiences");
@@ -166,7 +167,6 @@ export default function EditResume() {
       >
         Upload
       </Button>
-      <h2 className="title">RESUME</h2>
       <Grid columns={col} padded="horizontally">
         <Grid.Column>
           <h2 className="subTitle">Experience</h2>
