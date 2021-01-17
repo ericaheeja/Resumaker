@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SlackOutlined,
   TwitterOutlined,
@@ -6,8 +6,7 @@ import {
   LinkedinOutlined,
   FacebookOutlined,
 } from "@ant-design/icons";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { Form, Input, Button, Upload, message, Row, Col } from "antd";
+import { Form, Input, Button, Radio } from "antd";
 
 const layout = {
   labelCol: {
@@ -18,16 +17,30 @@ const layout = {
   },
 };
 
+const socialMediaList = [
+  { value: "linkedIn", icon: <LinkedinOutlined /> },
+  { value: "github", icon: <GithubOutlined /> },
+  { value: "slack", icon: <SlackOutlined /> },
+  { value: "facebook", icon: <FacebookOutlined /> },
+  { value: "twitter", icon: <TwitterOutlined /> },
+];
+
 const onFinish = (values) => {
   console.log("Finish:", values);
 };
 
 export default function EditContact() {
+  const [value, setValue] = useState("");
+
+  const radioOption = (e) => {
+    setValue(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
     <>
       <div className="contact" id="CONTACT">
-        <h2>Contact Details</h2>
-
+        <h2 className="contactDetailTitle">Contact Details</h2>
         <Form {...layout} className="contactForm" onFinish={onFinish}>
           <Form.Item label="Name" name="name" className="formName">
             <Input className="clientInput" type="name" required={true} />
@@ -42,62 +55,22 @@ export default function EditContact() {
             <Input className="clientInput" type="phone" required={true} />
           </Form.Item>
 
-          <Form.Item label="LinkedIn" name="linkedin" className="formLinkedin">
-            <Input className="clientInput" type="linkedin" />
-          </Form.Item>
-          <Form.Item label="GitHub" name="github" className="formGithub">
-            <Input className="clientInput" type="github" />
-          </Form.Item>
-          <Form.Item label="Slack" name="slack" className="formSlack">
-            <Input className="clientInput" type="slack" />
-          </Form.Item>
-          <Form.Item label="FaceBook" name="facebook" className="formFacebook">
-            <Input className="clientInput" type="facebook" />
-          </Form.Item>
-          <Form.Item label="Twitter" name="twitter" className="formTwitter">
-            <Input className="clientInput" type="twitter" />
-          </Form.Item>
-
-          <Form.Item>
-            <Button className="saveBtn" htmlType="submit">
-              Save
-            </Button>
-          </Form.Item>
+          <Radio.Group className="socialRadio" onChange={radioOption} value={value}>
+            {socialMediaList.map((socialMedia, index) => {
+              return (
+                <Radio className="radio" key={index} value={socialMedia.value}>
+                  {socialMedia.icon}
+                </Radio>
+              );
+            })}
+          </Radio.Group>
+          <Button className="doneBtn" htmlType="submit">
+            Done
+          </Button>
         </Form>
-
-        <section
-          style={{
-            fontSize: "1.8em",
-          }}
-          className="resumeIcon"
-        >
-          {" "}
-          <LinkedinOutlined
-            style={{ marginRight: "2%", marginLeft: "2%", cursor: "pointer" }}
-          />
-          <GithubOutlined
-            style={{ marginRight: "2%", marginLeft: "2%", cursor: "pointer" }}
-          />
-          <SlackOutlined
-            style={{ marginRight: "2%", marginLeft: "2%", cursor: "pointer" }}
-          />
-          <FacebookOutlined
-            style={{
-              marginRight: "2%",
-              marginLeft: "2%",
-              cursor: "pointer",
-            }}
-          />
-          <TwitterOutlined
-            style={{
-              marginRight: "2%",
-              marginLeft: "2%",
-              marginTop: "2.5%",
-              marginBottom: "5%",
-              cursor: "pointer",
-            }}
-          />
-        </section>
+        <div className="contactSave">
+          <Button>Save contact</Button>
+        </div>
       </div>
     </>
   );

@@ -12,22 +12,17 @@ export default function Contact() {
     <div className="contact" id="CONTACT">
       <h2 className="contactTitle">Contact Details</h2>
       <section className="userInfo">
-        <p>
-          <h4>NAME</h4>
-          Awesome Resumaker
-        </p>
-        <p>
-          <h4>ADDRESS</h4>
-          downtown, vancouver, BC V3G 3H7
-        </p>
-        <p>
-          <h4>EMAIL</h4>
-          resumaker@gmail.com
-        </p>
-        <p>
-          <h4>PHONE</h4>
-          123 456 7890
-        </p>
+        <h4>NAME</h4>
+        <p>Awesome Resumaker</p>
+
+        <h4>ADDRESS</h4>
+        <p>downtown, vancouver, BC V3G 3H7</p>
+
+        <h4>EMAIL</h4>
+        <p>resumaker@gmail.com</p>
+
+        <h4>PHONE</h4>
+        <p>123 456 7890</p>
       </section>
       <section
         style={{
