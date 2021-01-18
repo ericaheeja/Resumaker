@@ -12,7 +12,7 @@ export default function MainPage() {
       <Header />
       <Landing />
       <Samples />
-      <div style={{ backgroundColor: "#FFF", marginTop: "-5%" }}>
+      <div>
         <Grid>
           <Grid.Row columns={3}>
             <Grid.Column>
