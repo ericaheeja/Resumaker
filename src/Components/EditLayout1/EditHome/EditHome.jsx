@@ -40,50 +40,60 @@ export default function EditHome() {
   };
 
   return (
-    <section className="navbar">
-      <div className="ui fixed top sticky">
-        <Segment inverted>
-          <a className="bars" onClick={navbarClick}>
-            <Icon name="bars" />
-          </a>
-          <div className="menuItem" id="menuItem">
-            {open ? (
-              <Menu inverted secondary>
-                <Menu.Item
-                  name="HOME"
-                  active={activeItem.current === "HOME"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="PORTFOLIO"
-                  active={activeItem.current === "PORTFOLIO"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="RESUME"
-                  active={activeItem.current === "RESUME"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="ABOUT"
-                  active={activeItem.current === "ABOUT"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="SKILLS"
-                  active={activeItem.current === "SKILLS"}
-                  onClick={handleItemClick}
-                />
-                <Menu.Item
-                  name="CONTACT"
-                  active={activeItem.current === "CONTACT"}
-                  onClick={handleItemClick}
-                />
-              </Menu>
-            ) : null}
-          </div>
-        </Segment>
+    <>
+      <section className="navbar">
+        <div className="ui fixed top sticky">
+          <Segment inverted>
+            <a className="bars" onClick={navbarClick}>
+              <Icon name="bars" />
+            </a>
+            <div className="menuItem" id="menuItem">
+              {open ? (
+                <Menu inverted secondary>
+                  <Menu.Item
+                    name="HOME"
+                    active={activeItem.current === "HOME"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="PORTFOLIO"
+                    active={activeItem.current === "PORTFOLIO"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="RESUME"
+                    active={activeItem.current === "RESUME"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="ABOUT"
+                    active={activeItem.current === "ABOUT"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="SKILLS"
+                    active={activeItem.current === "SKILLS"}
+                    onClick={handleItemClick}
+                  />
+                  <Menu.Item
+                    name="CONTACT"
+                    active={activeItem.current === "CONTACT"}
+                    onClick={handleItemClick}
+                  />
+                </Menu>
+              ) : null}
+            </div>
+          </Segment>
+        </div>
+      </section>
+      <div className="userPicture">
+        <h1>
+          Hello, I'm <strong className="userNameHeader">Resume Maker</strong>
+        </h1>
+        <strong className="userNameHeader" id="thisIsMyResume">
+          AND THIS IS MY RESUME
+        </strong>
       </div>
-    </section>
+    </>
   );
 }

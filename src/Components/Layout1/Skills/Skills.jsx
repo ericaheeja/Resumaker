@@ -94,9 +94,7 @@ export default function Skills() {
 
   return (
     <section className="SkillsContainer" id="SKILLS">
-      <div className="title">
-        <h2>Skills</h2>
-      </div>
+      <h2 className="skillsTitle">Skills</h2>
       <Grid columns={numOfColumns} padded="horizontally">
         {skills.map((skill) => {
           return skillCard(skill);

@@ -1,55 +1,115 @@
-.SkillsContainer {
-    width: 80%;
-    margin: 0 auto;
-  
-    .title {
-      color: white;
-      justify-content: center;
-      text-align: center;
-      margin-bottom: 5%;
+.editSkillsContainer {
+  width: 80%;
+  margin: 0 auto;
+  vertical-align: middle;
+
+  .skillsSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
     }
-  
-    .skillCard {
-      padding: 0;
-      color: $white;
-  
-      .img {
-        background-color: #bac964;
-        background: #bac964;
+  }
+  .skillsTitle {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: 600;
+  }
+
+  .ui.grid {
+    margin-bottom: 0;
+  }
+
+  .skillsSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+
+  .skillCard {
+    padding: 0;
+    color: $white;
+    margin-bottom: 10px;
+
+    .ant-form-item-label {
+      padding: 1px 3px;
+      text-align: left;
+      flex: 0 0 100%;
+    }
+
+    .ant-form-item-label > label {
+      color: $lilywhite;
+      font-weight: 500;
+      font-size: 15.3px;
+    }
+
+    .ant-upload.ant-upload-select-picture-card {
+      width: 100%;
+    }
+
+    .removeBtn {
+      width: 100%;
+      background-color: $white;
+      height: 32px;
+      font-weight: 600;
+    }
+
+    .img {
+      background-color: #bac964;
+      background: #bac964;
+    }
+
+    .contents {
+      margin: 0 auto;
+      padding: 6px 8px;
+      background-color: $darkgray;
+      // height: 350px;
+
+      .name {
+        color: $white;
+        text-align: center;
       }
-  
-      .contents {
-        margin: 0 auto;
-        padding: 5%;
-        background-color: $darkgray;
-        height: 350px;
-        
-        .name {
-          color: $white;
-          text-align: center;
-        }
-    
-        .description {
-          color: rgba(255, 255, 255, 0.4);
-          height: 150px;
-          overflow:hidden;
-        }
 
-        .img {
-          width: 100px;
-          height: 100px;
-        }
+      .ant-form-item {
+        margin-bottom: 5px;
+      }
 
-        .formName {
-          margin-top: 5%;
-          color: $white;
-          text-align: center;
-        }
-    
-        .formDescription {
-          color: rgba(255, 255, 255, 0.4);
-        }
+      .description {
+        color: rgba(255, 255, 255, 0.4);
+        height: 150px;
+        overflow: hidden;
+      }
+
+      .img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .formName {
+        margin-top: 5%;
+        color: $white;
+        text-align: center;
+      }
+
+      .formDescription {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .saveBtn {
+        width: 100%;
+        margin-top: 3%;
+        font-weight: 600;
       }
     }
   }
-  
+}

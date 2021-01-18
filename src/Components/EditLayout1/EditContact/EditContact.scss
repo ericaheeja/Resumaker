@@ -1,8 +1,85 @@
-.contact {
+.contactContainer {
+  width: 71%;
+  margin: 0 auto;
+  vertical-align: middle;
+
+  @include mobileM {
+    width: 73%;
+  }
+
+  @include mobileL {
+    width: 74%;
+  }
+
+  @include tabletP {
+    width: 60%;
+  }
+
+  .contactSave {
+    text-align: center;
+    margin-top: 35px;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+      margin-bottom: 10%;
+    }
+  }
+
+  .contactDetailTitle {
+    color: $white;
+    font-weight: 600;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
   .contactForm {
     background-color: $darkgray;
-    width: fit-content;
+    // width: fit-content;
     margin: 0 auto;
-    padding: 16px;
+    padding: 6px 8px;
+
+    .ant-form-item {
+      margin-bottom: 2px;
+    }
+    .ant-form-item .ant-form-item-label > label {
+      color: $white;
+      font-weight: 500;
+      float: left;
+    }
+
+    .ant-form-horizontal .ant-form-item-control {
+      @include tabletP {
+        width: 100vw;
+        flex: 0 !important;
+        // align-items: center;
+      }
+    }
+
+    .ant-row {
+      @include tabletP {
+        flex-direction: column;
+      }
+    }
+
+    .ant-col-16 {
+      @include tabletP {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .socialRadio {
+    margin-top: 2%;
+    .radio {
+      color: $white;
+      font-size: 17px;
+    }
+  }
+
+  .doneBtn {
+    width: 100%;
+    margin-top: 2%;
+    font-weight: 500;
   }
 }

@@ -2,11 +2,13 @@
   width: 80%;
   margin: 0 auto;
 
-  .title {
+  .skillsTitle {
     color: white;
     justify-content: center;
     text-align: center;
+    margin-top: 20%;
     margin-bottom: 5%;
+    font-weight: 600;
   }
 
   .ui.grid {
@@ -31,10 +33,14 @@
     .name {
       color: $white;
       text-align: center;
+      font-weight: 600;
+      margin-top: 4%;
     }
 
     .description {
-      color: rgba(255, 255, 255, 0.4);
+      margin-top: 8%;
+      color: $lilywhite;
+      font-size: medium;
     }
   }
 }

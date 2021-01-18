@@ -1,10 +1,21 @@
 @import "../../../Mixin.scss";
 
-.PortfolioContainer {
+.editPortfolioContainer {
+  .portfolioSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
   .portfolioTitle {
     color: $white;
     text-align: center;
-    margin: 5% 0 3% 0;
+    margin: 10% 0 3% 0 !important;
+    font-weight: 600;
     @include desktop {
       margin: 4.5% 0 3% 0;
     }
@@ -48,6 +59,29 @@
       @include desktop {
         width: 22%;
         margin: 2% 3% 2% 3%;
+      }
+
+      .ant-upload.ant-upload-select-picture-card {
+        width: 100%;
+      }
+
+      .description {
+        height: 80px;
+      }
+
+      .content {
+        padding: 6px 12px;
+        margin-bottom: 20%;
+        .ant-form-item-label {
+          text-align: left;
+          flex: 0 0 100%;
+          font-weight: 600;
+        }
+      }
+
+      .doneBtn {
+        width: 100%;
+        margin-top: 2%;
       }
     }
   }

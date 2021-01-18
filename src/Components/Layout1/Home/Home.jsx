@@ -96,12 +96,7 @@ export default function Home() {
           <Button text="Use This Template"></Button>
         </div>
       </Link>
-      <div
-        className="userPicture"
-        // style={{ backgroundImage: `url(${userPicture})`, height: "500px" }}
-        // style={{ height: "800px", backgroundColor: "#4c516d" }}
-      >
-        {/* <Image src={userPicture} /> */}
+      <div className="userPicture">
         <h1>
           Hello, I'm <strong className="userNameHeader">Resume Maker</strong>
         </h1>
