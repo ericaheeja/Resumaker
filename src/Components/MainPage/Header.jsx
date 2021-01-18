@@ -17,7 +17,7 @@ export default function Header() {
 
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  const islogged = useSelector((state) => state.isLogged.currentUser);
+  const islogged = useSelector((state) => state.isLogged);
   console.log(islogged);
 
   const dispatch = useDispatch();
@@ -37,24 +37,8 @@ export default function Header() {
       <Grid columns="equal">
         <Grid.Column floated="left" verticalAlign="middle">
           <div>
-            <h2>RESUMAKER</h2>
+            <h2 className="logo">RESUMAKER</h2>
           </div>
-        </Grid.Column>
-        <Grid.Column>
-          <Menu text className="MenuBar" widths={4}>
-            <Menu.Item
-              name="Overview"
-              active={activeItem === "Overview"}
-              onClick={handleItemClick}
-            />
-            <Menu.Item
-              name="Portfolios"
-              active={activeItem === "Portfolios"}
-              onClick={handleItemClick}
-            />
-            <Menu.Item name="Samples" active={activeItem === "Samples"} onClick={handleItemClick} />
-            <Menu.Item name="Pricing" active={activeItem === "Pricing"} onClick={handleItemClick} />
-          </Menu>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
           <button onClick={signInWithGoogle}>signIn</button>

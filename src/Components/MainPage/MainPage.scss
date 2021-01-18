@@ -4,22 +4,29 @@
     width: 90%;
     margin: auto;
 
-    .ui.grid {
-      .ui.grid.column {
-        .ui.menu {
-          .MenuBar {
-            justify-content: center;
-          }
-        }
-      }
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
     }
+
+    // .ui.grid {
+    //   .ui.grid.column {
+    //     .ui.menu {
+    //       .MenuBar {
+    //         justify-content: center;
+    //       }
+    //     }
+    //   }
+    // }
   }
   .ui.grid {
     margin: 0;
   }
   .Landing {
-    background-color: rgb(0, 110, 255);
-    width: 100%;
+    background-image: url("../../Assets/mainPhoto.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 500px;
     position: relative;
 
@@ -33,19 +40,27 @@
 
       h2 {
         font-weight: 900;
-        font-size: 40px;
+        font-size: 28px;
         color: whitesmoke;
-        margin: 0;
+
+        @include laptop {
+          font-size: 40px;
+        }
       }
       p {
         font-size: 15px;
         color: #9fc1ea;
-        margin: 5%;
+        margin: 5% 5% 10% 5%;
       }
       Button {
         border-radius: 27px;
         background-color: whitesmoke;
         color: rgb(0, 110, 255);
+        padding: 8px 18px !important;
+
+        @include laptop {
+          padding: 10px 25px;
+        }
       }
     }
   }
