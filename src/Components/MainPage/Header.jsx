@@ -1,11 +1,36 @@
 import React, { useState } from "react";
 import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
+import { firebaseAuth } from "../../Config/firebase";
+import { getKeyThenIncreaseKey } from "antd/lib/message";
+import firebase from "firebase/app";
+import { generateUserDocument } from "../../Helpers/authentication";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../Actions";
 
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
 
+  const [currentUser, setCurrentUser] = useState(null);
+
   const handleItemClick = (e, { name }) => setActiveItem(name);
+
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+  const islogged = useSelector((state) => state.isLogged.currentUser);
+  console.log(islogged);
+
+  const dispatch = useDispatch();
+
+  const signInWithGoogle = () => {
+    firebaseAuth.signInWithPopup(googleProvider).then(function (result) {
+      generateUserDocument(result.user).then(function (userData) {
+        console.log(currentUser);
+        dispatch(login(userData));
+        setCurrentUser(islogged);
+      });
+    });
+  };
 
   return (
     <div className="MainHeader">
@@ -32,7 +57,7 @@ export default function Header() {
           </Menu>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          <Button text={"Sign In"} onClick={null} />
+          <button onClick={signInWithGoogle}>signIn</button>
         </Grid.Column>
       </Grid>
     </div>

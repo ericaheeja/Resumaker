@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Home from "./Home/Home";
 import Portfolio from "./Portfolio/Portfolio";
 import Resume from "./Resume/Resume";
 import About from "./About/About";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
+import { useSelector } from "react-redux";
 
 const getInitialTopButtonVisible = () => {
   return window.innerWidth <= 768;
 };
 
 export default function MainLayout1() {
-  const [topButtonVisible, setTopButtonVisible] = useState(
-    getInitialTopButtonVisible()
-  );
+  const [topButtonVisible, setTopButtonVisible] = useState(getInitialTopButtonVisible());
+
+  const islogged = useSelector((state) => state.isLogged.currentUser);
+  console.log(islogged);
 
   const resizeScreen = () => {
     if (window.innerWidth <= 768) {

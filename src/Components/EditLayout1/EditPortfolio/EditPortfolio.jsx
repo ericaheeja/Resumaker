@@ -80,12 +80,12 @@ const PortfolioForm = (portfolios, setPortfolios) => {
               name="description"
               className="portfolioDescription"
             >
-              <Input className="description" type="description" />
+              <Input.TextArea className="description" type="description" />
             </Form.Item>
           </Card.Description>
         </Card.Content>
-        <Button className="saveBtn" htmlType="submit">
-          Save
+        <Button className="doneBtn" htmlType="submit">
+          Done
         </Button>
       </Form>
     </Card>
@@ -109,7 +109,12 @@ export default function EditPortfolio() {
           <Card.Meta>{project.period}</Card.Meta>
           <Card.Description>{project.description}</Card.Description>
         </Card.Content>
-        <button className="removeBtn" onClick={() => removePortfolio(project.name)}>
+        <button
+          className="removeBtn"
+          width="100%"
+          style={{ borderColor: "#d9d9d9", height: "32px", borderRadius: "2px" }}
+          onClick={() => removePortfolio(project.name)}
+        >
           Remove
         </button>
       </Card>
@@ -119,13 +124,6 @@ export default function EditPortfolio() {
   return (
     <section className="editPortfolioContainer" id="PORTFOLIO">
       <h2 className="portfolioTitle">PORTFOLIO</h2>
-      <Button
-        onClick={() => {
-          uploadDataWithImg(portfolios, "kangmin", "portfolios");
-        }}
-      >
-        haha
-      </Button>
       <div className="portfolios">
         <Grid columns={3} textAlign="center">
           {portfolios.map((project) => {
@@ -133,6 +131,15 @@ export default function EditPortfolio() {
           })}
           {PortfolioForm(portfolios, setPortfolios, portfolios.imageRef)}
         </Grid>
+        <div className="portfolioSave">
+          <Button
+            onClick={() => {
+              uploadDataWithImg(portfolios, "kangmin", "portfolios");
+            }}
+          >
+            Save portfolio
+          </Button>
+        </div>
       </div>
     </section>
   );

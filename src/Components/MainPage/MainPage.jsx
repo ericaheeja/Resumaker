@@ -38,8 +38,8 @@ export default function MainPage() {
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>
-                    <Card.Header>Layout1</Card.Header>
-                    <Card.Description>Made by Erica</Card.Description>
+                    <Card.Header>Layout2</Card.Header>
+                    <Card.Description>Made by Jce</Card.Description>
                   </Card.Content>
                   <Card.Content extra>
                     <Icon name="heart" />
@@ -54,7 +54,7 @@ export default function MainPage() {
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>
-                    <Card.Header>Layout1</Card.Header>
+                    <Card.Header>Layout3</Card.Header>
                     <Card.Description>Made by Erica</Card.Description>
                   </Card.Content>
                   <Card.Content extra>
