@@ -40,22 +40,6 @@ export default function Header() {
             <h2 className="logo">RESUMAKER</h2>
           </div>
         </Grid.Column>
-        {/* <Grid.Column>
-          <Menu text className="MenuBar" widths={4}>
-            <Menu.Item
-              name="Overview"
-              active={activeItem === "Overview"}
-              onClick={handleItemClick}
-            />
-            <Menu.Item
-              name="Portfolios"
-              active={activeItem === "Portfolios"}
-              onClick={handleItemClick}
-            />
-            <Menu.Item name="Samples" active={activeItem === "Samples"} onClick={handleItemClick} />
-            <Menu.Item name="Pricing" active={activeItem === "Pricing"} onClick={handleItemClick} />
-          </Menu>
-        </Grid.Column> */}
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
           <button onClick={signInWithGoogle}>signIn</button>
         </Grid.Column>
