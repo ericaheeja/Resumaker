@@ -1,4 +1,4 @@
-.contact {
+.contactContainer {
   width: 71%;
   margin: 0 auto;
   vertical-align: middle;
@@ -67,18 +67,6 @@
         max-width: 100%;
       }
     }
-
-    // .ant-form-item-label {
-    //   @include tabletP {
-    //     text-align: left;
-    //   }
-    // }
-
-    // .ant-col-8 {
-    //   @include tabletP {
-    //     flex: 0 0 20%;
-    //   }
-    // }
   }
 
   .socialRadio {

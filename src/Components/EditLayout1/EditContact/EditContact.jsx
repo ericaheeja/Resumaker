@@ -39,7 +39,7 @@ export default function EditContact() {
 
   return (
     <>
-      <div className="contact" id="CONTACT">
+      <div className="contactContainer" id="CONTACT">
         <h2 className="contactDetailTitle">Contact Details</h2>
         <Form {...layout} className="contactForm" onFinish={onFinish}>
           <Form.Item label="Name" name="name" className="formName">
