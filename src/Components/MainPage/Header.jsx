@@ -5,6 +5,8 @@ import { getKeyThenIncreaseKey } from "antd/lib/message";
 import { useSelector } from "react-redux";
 import LoginModal from "./LoginModal";
 import Logout from "./Logout";
+import UserPage from "../UserPage/UserPage";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
@@ -23,7 +25,14 @@ export default function Header() {
           </div>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          {islogged == null ? <LoginModal /> : <Logout />}
+          {islogged == null ? (
+            <LoginModal />
+          ) : (
+            <div>
+              <Link to="/mypage">My page</Link>
+              <Logout />
+            </div>
+          )}
         </Grid.Column>
       </Grid>
     </div>
