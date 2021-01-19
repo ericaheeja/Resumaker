@@ -17,8 +17,7 @@ export default function Header() {
 
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  const islogged = useSelector((state) => state.isLogged.currentUser);
-  console.log(islogged);
+  const islogged = useSelector((state) => state.isLogged);
 
   const dispatch = useDispatch();
 

@@ -2,8 +2,14 @@
 @import "./Home/Home.scss";
 @import "./About/About.scss";
 @import "./Work/Work.scss";
+@import "./Education//Education.scss";
+@import "./Experience/Experience.scss";
 
 .layout2 {
+  #mainContents {
+    transition: margin 0.3s;
+  }
+
   .trigger {
     font-size: 18px;
     line-height: 64px;
@@ -18,6 +24,7 @@
 
   .site-layout .site-layout-background {
     background: #fff;
+    height: 100vh;
   }
 
   .ant-layout-sider-zero-width-trigger {
