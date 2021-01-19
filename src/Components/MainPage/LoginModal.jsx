@@ -6,7 +6,8 @@ import firebase from "firebase/app";
 import { firebaseAuth } from "../../Config/firebase";
 import { generateUserDocument } from "../../Helpers/authentication";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../Actions";
+import { googleLogin, facebookLogin } from "../../Actions";
+import { useHistory } from "react-router-dom";
 
 function LoginModal() {
   const [open, setOpen] = useState(false);
@@ -18,13 +19,20 @@ function LoginModal() {
   console.log(islogged);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const goBackToHome = () => {
+    setOpen(!open);
+    history.push("/");
+  };
 
   const signInWithGoogle = () => {
     firebaseAuth.signInWithPopup(googleProvider).then(function (result) {
       generateUserDocument(result.user).then(function (userData) {
-        console.log(currentUser);
-        dispatch(login(userData));
+        // console.log(currentUser);
+        dispatch(googleLogin(userData));
         setCurrentUser(islogged);
+        goBackToHome();
       });
     });
   };
@@ -32,7 +40,8 @@ function LoginModal() {
   const signInWithFacebook = () => {
     firebaseAuth.signInWithPopup(facebookProvider).then(function (result) {
       generateUserDocument(result.user).then(function (userData) {
-        dispatch(login(userData));
+        dispatch(facebookLogin(userData));
+        goBackToHome();
       });
     });
   };

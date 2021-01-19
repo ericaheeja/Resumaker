@@ -18,7 +18,6 @@ export default function Header() {
           </div>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          {/* <button onClick={signInWithGoogle}>signIn</button> */}
           <LoginModal />
         </Grid.Column>
       </Grid>
