@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
 import { getKeyThenIncreaseKey } from "antd/lib/message";
+import { useSelector } from "react-redux";
 import LoginModal from "./LoginModal";
+import Logout from "./Logout";
 
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
+
+  const islogged = useSelector((state) => state.isLogged);
+  console.log(islogged);
 
   return (
     <div className="MainHeader">
@@ -18,7 +23,7 @@ export default function Header() {
           </div>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          <LoginModal />
+          {islogged == null ? <LoginModal /> : <Logout />}
         </Grid.Column>
       </Grid>
     </div>

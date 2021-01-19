@@ -46,6 +46,11 @@ function LoginModal() {
     });
   };
 
+  // const isloggedIn = () => {
+  //   const islogged = useSelector((state) => state.isLogged);
+  //   console.log(islogged);
+  // }
+
   return (
     <div>
       <Modal
@@ -53,7 +58,7 @@ function LoginModal() {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Sign in</Button>}
+        trigger={<Button>Login</Button>}
       >
         <Modal.Header>
           Login with{" "}
