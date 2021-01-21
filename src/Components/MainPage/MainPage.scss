@@ -4,9 +4,22 @@
     width: 90%;
     margin: auto;
 
+    .ui.grid > .column:not(.row),
+    .ui.grid > .row > .column {
+      padding-left: 3% !important;
+    }
+
     .logo {
       font-size: 20px;
       font-weight: 600;
+      color: midnightblue;
+    }
+
+    .ui.button {
+      background: $white;
+      border: 1px solid #e0e1e2;
+      padding: 10px 15px;
+      margin: 0;
     }
 
     // .ui.grid {
@@ -34,14 +47,32 @@
       margin: 0;
       text-align: center;
       position: absolute;
-      top: 50%;
+      top: 44%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 100vw;
 
-      h2 {
+      @include mobileM {
+        width: 90vw;
+      }
+
+      @include mobileL {
+        width: 85vw;
+      }
+
+      h1 {
         font-weight: 900;
-        font-size: 28px;
-        color: whitesmoke;
+        font-size: 33px;
+        color: midnightblue;
+        margin-bottom: 10%;
+
+        @include mobileM {
+          font-size: 35px;
+        }
+
+        @include mobileL {
+          font-size: 37px;
+        }
 
         @include laptop {
           font-size: 40px;
@@ -55,8 +86,9 @@
       Button {
         border-radius: 27px;
         background-color: whitesmoke;
-        color: rgb(0, 110, 255);
-        padding: 8px 18px !important;
+        color: $black;
+        padding: 9px 18px !important;
+        font-weight: 600;
 
         @include laptop {
           padding: 10px 25px;
@@ -67,28 +99,65 @@
   .Samples {
     background-color: #fff;
     width: 100%;
-    height: 400px;
+    margin-top: 65%;
+    // margin-bottom: 30%;
+    // height: 350px;
     position: relative;
 
     .content {
       margin: 0;
       text-align: center;
       position: absolute;
-      top: 50%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
 
       h2 {
         font-weight: 900;
-        font-size: 40px;
+        font-size: 30px;
         color: #293340;
-        margin: 0;
+        width: 300px;
+        // margin: 0;
+
+        @include mobileL {
+          font-size: 35px;
+          width: 350px;
+        }
       }
       p {
         font-size: 15px;
         color: #6d7784;
         margin: 5%;
+        // width: 210px;
       }
+
+      #pContent {
+        margin: 5% 10% 60% 10%;
+
+        @include mobileL {
+          font-size: 15.5px;
+        }
+      }
+    }
+  }
+
+  .layoutList {
+    .ui.grid > .row {
+      display: flex;
+      flex-direction: column;
+      // margin-bottom: 2%;
+    }
+
+    .ui.grid > [class*="three column"].row > .column {
+      width: 100% !important;
+    }
+
+    .ui.centered.card {
+      width: 75vw;
+    }
+
+    .ui.card:last-child {
+      margin-bottom: 10%;
     }
   }
 }

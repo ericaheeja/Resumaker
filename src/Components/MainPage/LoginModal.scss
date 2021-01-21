@@ -1,3 +1,79 @@
 .loginModal {
-  height: 200px;
+  @include mobileL {
+    width: 404px !important;
+    height: 250px !important;
+  }
+
+  @include tabletP {
+    top: 30%;
+  }
+
+  .closeBtn {
+    background: $white;
+    margin: 0;
+    padding: 8px 8px;
+    margin-right: -22px !important;
+
+    @include tablePtoLaptop {
+      margin-right: -10px !important;
+    }
+  }
+
+  .loginContent {
+    text-align: center;
+
+    .googleLoginBtn,
+    .fbLoginBtn {
+      background: $white;
+      border: 2px solid $gray;
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0 0 2% 4%;
+      padding: 0;
+      width: 90%;
+
+      @include mobileL {
+        width: 80%;
+        margin-left: 9%;
+      }
+
+      .googleLogo {
+        width: 45px;
+        height: 45px;
+      }
+
+      .facebookLogo {
+        width: 45px;
+        height: 45px;
+        padding: 4px 4px;
+      }
+
+      .googleLoginText {
+        width: 170px;
+        margin-top: 6.5%;
+
+        @include mobileM {
+          margin-top: 5.5%;
+        }
+
+        @include mobileL {
+          margin-top: 5%;
+        }
+      }
+
+      .facebookLoginText {
+        width: 170px;
+        margin-top: 6%;
+        color: #1890ff;
+
+        @include mobileM {
+          margin-top: 5.5%;
+        }
+
+        @include mobileL {
+          margin-top: 5%;
+        }
+      }
+    }
+  }
 }
