@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
 import googleIcon from "../../Assets/googleIcon.jpg";
-import facebookIcon from "../../Assets/fbIcon.png";
+import facebookIcon from "../../Assets/facebookIcon.png";
 import firebase from "firebase/app";
 import { firebaseAuth } from "../../Config/firebase";
 import { generateUserDocument } from "../../Helpers/authentication";
@@ -58,15 +58,20 @@ function LoginModal() {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Login</Button>}
+        trigger={<Button className="loginBtn">Login</Button>}
       >
         <Modal.Header>
           Login with{" "}
-          <Button color="$white" floated="right" onClick={() => setOpen(false)}>
+          <Button
+            className="closeBtn"
+            color="$white"
+            floated="right"
+            onClick={() => setOpen(false)}
+          >
             X
           </Button>
         </Modal.Header>
-        <Modal.Content>
+        <Modal.Content className="loginContent">
           <Modal.Description>
             <Header>Choose one of your social media account.</Header>
             <Button onClick={signInWithGoogle} className="googleLoginBtn">
@@ -79,7 +84,6 @@ function LoginModal() {
             </Button>
           </Modal.Description>
         </Modal.Content>
-        <Modal.Actions></Modal.Actions>
       </Modal>
     </div>
   );

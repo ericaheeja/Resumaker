@@ -12,7 +12,7 @@ export default function MainPage() {
       <Header />
       <Landing />
       <Samples />
-      <div>
+      <div className="layoutList">
         <Grid>
           <Grid.Row columns={3}>
             <Grid.Column>
