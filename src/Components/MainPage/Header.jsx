@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
+import { UserOutlined } from "@ant-design/icons";
 import { getKeyThenIncreaseKey } from "antd/lib/message";
 import { useSelector } from "react-redux";
 import LoginModal from "./LoginModal";
@@ -28,8 +29,12 @@ export default function Header() {
           {islogged == null ? (
             <LoginModal />
           ) : (
-            <div>
-              <Link to="/mypage">My page</Link>
+            <div className="rightSideHeader">
+              <Link to="/mypage">
+                <section style={{ fontSize: "20px" }}>
+                  <UserOutlined style={{ color: "black", cursor: "pointer" }} />
+                </section>
+              </Link>
               <Logout />
             </div>
           )}
