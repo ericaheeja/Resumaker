@@ -21,6 +21,17 @@
       padding: 10px 15px;
       margin: 0;
     }
+
+    // .ui.grid > * {
+    //   padding-right: 0 !important;
+    //   width: 0;
+    // }
+
+    .rightSideHeader {
+      display: flex;
+      float: right;
+      // justify-content: space-evenly;
+    }
   }
   .ui.grid {
     margin: 0;
