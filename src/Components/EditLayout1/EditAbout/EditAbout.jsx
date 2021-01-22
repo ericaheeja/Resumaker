@@ -59,7 +59,7 @@ export default function EditAbout() {
   window.addEventListener("resize", resizeScreen);
 
   return (
-    <section className="AboutContainer" id="ABOUT">
+    <section className="editAboutContainer" id="ABOUT">
       <h2 className="aboutMeTitle">About Me</h2>
       <div className="aboutMeContents">
         <Form className="addForm" onFinish={createIntro}>
