@@ -22,7 +22,9 @@ export default function Header() {
       <Grid columns="equal">
         <Grid.Column floated="left" verticalAlign="middle">
           <div>
-            <h2 className="logo">RESUMAKER</h2>
+            <Link to="/">
+              <h2 className="logo">RESUMAKER</h2>
+            </Link>
           </div>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
