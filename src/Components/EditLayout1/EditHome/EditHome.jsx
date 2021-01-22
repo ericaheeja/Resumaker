@@ -41,7 +41,7 @@ export default function EditHome() {
 
   return (
     <>
-      <section className="navbar">
+      <section className="editNavbar">
         <div className="ui fixed top sticky">
           <Segment inverted>
             <a className="bars" onClick={navbarClick}>
