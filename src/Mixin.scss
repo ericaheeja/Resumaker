@@ -60,3 +60,9 @@ $lilywhite: #e9eeeb;
     @content;
   }
 }
+
+@mixin hugeDesktop {
+  @media only screen and (min-width: 2560px) {
+    @content;
+  }
+}

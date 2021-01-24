@@ -12,12 +12,12 @@ export default function MainPage() {
       <Header />
       <Landing />
       <Samples />
-      <div style={{ backgroundColor: "#FFF", marginTop: "-5%" }}>
+      <div className="layoutList">
         <Grid>
           <Grid.Row columns={3}>
             <Grid.Column>
               {" "}
-              <Link to="/layout1">
+              <Link to="/l1">
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>
@@ -34,7 +34,7 @@ export default function MainPage() {
 
             <Grid.Column>
               {" "}
-              <Link to="/layout2">
+              <Link to="/l2">
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>
@@ -50,7 +50,7 @@ export default function MainPage() {
             </Grid.Column>
             <Grid.Column>
               {" "}
-              <Link to="/layout1">
+              <Link to="/l1">
                 <Card centered>
                   <Image src={dog} wrapped ui={false} />
                   <Card.Content>

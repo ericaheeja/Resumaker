@@ -14,9 +14,6 @@ const getInitialTopButtonVisible = () => {
 export default function MainLayout1() {
   const [topButtonVisible, setTopButtonVisible] = useState(getInitialTopButtonVisible());
 
-  const islogged = useSelector((state) => state.isLogged.currentUser);
-  console.log(islogged);
-
   const resizeScreen = () => {
     if (window.innerWidth <= 768) {
       setTopButtonVisible(true);

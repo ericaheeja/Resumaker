@@ -7,7 +7,8 @@
     font-weight: 600;
   }
   .userInfo {
-    font-size: 1.2em;
+    font-size: 17px;
+    // font-size: 1.2em;
     font-weight: 600;
     margin-top: 6%;
     margin-bottom: 2%;
@@ -17,7 +18,10 @@
     h4 {
       color: #5e5a80;
       font-weight: 900;
-      line-height: 0;
+
+      @include desktop {
+        line-height: 1.6em;
+      }
     }
 
     @include mobileL {
@@ -28,11 +32,13 @@
     @include tablePtoLaptop {
       display: flex;
       justify-content: space-evenly;
+      font-size: 14px;
     }
 
     @include desktop {
       margin-left: 3%;
       margin-right: 3%;
+      font-size: 17px;
     }
   }
   .resumeIcon {
