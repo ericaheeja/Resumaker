@@ -14,8 +14,14 @@ export default function Header() {
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
+<<<<<<< HEAD
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+  const islogged = useSelector((state) => state.isLogged);
+=======
   const islogged = useSelector((state) => state.isLogged);
   console.log(islogged);
+>>>>>>> dev
 
   return (
     <div className="MainHeader">

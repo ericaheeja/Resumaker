@@ -1,0 +1,24 @@
+.educationContainer {
+
+    background-color: #e8e8e8;
+    
+    .contents {
+        width: 100%;
+        padding: 5vh 7.5vw;
+        margin: auto;
+
+        .ant-timeline {
+            margin-top: 10vh;
+        }
+
+        h4 {
+            margin-top: 10vh;
+            color: #000;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.8;
+            font-family: "Playfair Display", Georgia, serif;
+        }
+    }
+}

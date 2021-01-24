@@ -13,6 +13,8 @@ import sampleImg from "../../../src/Assets/layout2/sampleFace.jpg";
 import Home from "./Home/Home";
 import About from "./About/About";
 import Work from "./Work/Work";
+import Education from "./Education/Education";
+import Experience from "./Experience/Experience";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,7 +29,6 @@ export default function Layout2() {
             collapsed
               ? (document.getElementById("mainContents").style.marginLeft = 0)
               : (document.getElementById("mainContents").style.marginLeft = "300px");
-            console.log(collapsed);
           }}
           width="300px"
           style={{ background: "#f2f3f7" }}
@@ -55,8 +56,7 @@ export default function Layout2() {
               <br />
               <p>HOME</p>
               <p>ABOUT</p>
-              <p>WORKS</p>
-              <p>SKILLS</p>
+              <p>{`WORKS & SKILLS`}</p>
               <p>EDUCATION</p>
               <p>EXPERIENCE</p>
               <p>CONTACT</p>
@@ -74,6 +74,8 @@ export default function Layout2() {
             <Home />
             <About />
             <Work />
+            <Education />
+            <Experience />
           </Content>
           <Footer style={{ textAlign: "center" }}>Ant Design ©2021 Created by RESUMAKER</Footer>
         </Layout>
