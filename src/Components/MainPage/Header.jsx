@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
 import { UserOutlined } from "@ant-design/icons";
@@ -8,26 +8,17 @@ import LoginModal from "./LoginModal";
 import Logout from "./Logout";
 import UserPage from "../UserPage/UserPage";
 import { Link } from "react-router-dom";
-
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
-
   const handleItemClick = (e, { name }) => setActiveItem(name);
-
-<<<<<<< HEAD
-  const googleProvider = new firebase.auth.GoogleAuthProvider();
-
-  const islogged = useSelector((state) => state.isLogged);
-=======
   const islogged = useSelector((state) => state.isLogged);
   console.log(islogged);
->>>>>>> dev
-
   return (
     <div className="MainHeader">
       <Grid columns="equal">
         <Grid.Column floated="left" verticalAlign="middle">
           <div>
+            <h2 className="logo">RESUMAKER</h2>
             <Link to="/">
               <h2 className="logo">RESUMAKER</h2>
             </Link>
