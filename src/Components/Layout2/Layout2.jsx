@@ -83,3 +83,123 @@ export default function Layout2() {
     </div>
   );
 }
+
+function MainView() {
+
+
+  const relocateNavbar = () => {
+    if (window.innerWidth >= 1024) {
+      document.getElementById("navbarLaptop").style.left = "calc((100vw - 1024px)/2)";
+    }
+  };
+
+  const handleItemClick = (name) => {
+    const skills = document.getElementById(name);
+    if (skills === null) {
+      window.scroll(0, 0);
+    }
+
+    console.log(skills);
+
+    skills?.scrollIntoView({block: "end", behavior: "smooth"});
+    const scrolledY = window.scrollY;
+
+    if (scrolledY) {
+      window.scroll(0, scrolledY);
+    }
+  };
+
+  return (
+    <div className="layout">
+      {window.innerWidth >= 768 ? (
+        <Sider width="256px">
+          <div className="navbar" id="navbarLaptop" style={{background: "#fff"}}>
+            <div className="imgWrapper">
+              <Image
+                size="small"
+                circular
+                style={{
+                  margin: "25px auto",
+                  width: "175px",
+                  height: "175px",
+                  borderRadius: "100%",
+                }}
+                centered
+              />
+            </div>
+            <div className="siderContents" style={{textAlign: "center"}}>
+              <h2>이강민</h2>
+              <h5>
+                <span style={{color: "#2c98f0"}}> Junior Front-End Developer</span>
+              </h5>
+              <div className="menu">
+                <p onClick={() => handleItemClick("home")}>HOME</p>
+                <p onClick={() => handleItemClick("about")}>ABOUT</p>
+                <p onClick={() => handleItemClick("skills")}>{`WORKS & SKILLS`}</p>
+                <p onClick={() => handleItemClick("experience")}>EXPERIENCE</p>
+                <p onClick={() => handleItemClick("contact")}>CONTACT</p>
+              </div>
+              <div style={{fontSize: "30px"}}>
+                <FacebookOutlined style={{padding: "10px"}}/>
+                <InstagramOutlined style={{padding: "10px"}}/>
+                <LinkedinOutlined style={{padding: "10px"}}/>
+                <GithubOutlined style={{padding: "10px"}}/>
+              </div>
+            </div>
+          </div>
+        </Sider>
+      ) : (
+        <></>
+      )}
+
+
+      {window.innerWidth < 768 ? (
+        <div>
+          <button type="primary">
+            Open
+          </button>
+          <div placement="left" closable={false}>
+            <div className="navbar">
+              <div className="imgWrapper">
+                <Image
+
+                  size="small"
+                  circular
+                  style={{
+                    margin: "25px auto",
+                    width: "175px",
+                    height: "175px",
+                    borderRadius: "100%",
+                  }}
+                  centered
+                />
+              </div>
+              <div className="siderContents" style={{textAlign: "center"}}>
+                <h2>이강민</h2>
+                <h5>
+                  <span style={{color: "#2c98f0"}}> Junior Front-End Developer</span>
+                </h5>
+                <div className="menu">
+                  <p onClick={() => handleItemClick("home")}>HOME</p>
+                  <p onClick={() => handleItemClick("about")}>ABOUT</p>
+                  <p onClick={() => handleItemClick("skills")}>{`WORKS & SKILLS`}</p>
+                  <p onClick={() => handleItemClick("experience")}>EXPERIENCE</p>
+                  <p onClick={() => handleItemClick("contact")}>CONTACT</p>
+                </div>
+                <div style={{fontSize: "30px"}}>
+                  <FacebookOutlined style={{padding: "10px"}}/>
+                  <InstagramOutlined style={{padding: "10px"}}/>
+                  <LinkedinOutlined style={{padding: "10px"}}/>
+                  <GithubOutlined style={{padding: "10px"}}/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+}
+

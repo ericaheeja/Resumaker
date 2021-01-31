@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
-import { Icon, Menu, Segment, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React, {useState, useRef} from "react";
+import {Icon, Menu, Segment, Image} from "semantic-ui-react";
+import {Link} from "react-router-dom";
 import userPicture from "../../../Assets/me.png";
 import Button from "../../commonComponents/Button";
 
@@ -32,7 +32,7 @@ export default function Home() {
       window.scroll(0, navHeight);
     }
 
-    skills?.scrollIntoView(true);
+    skills?.scrollIntoView({block: "end", behavior: "smooth"});
     const scrolledY = window.scrollY;
 
     if (scrolledY) {
@@ -50,7 +50,7 @@ export default function Home() {
         <div className="ui fixed top sticky">
           <Segment inverted>
             <a className="bars" onClick={navbarClick}>
-              <Icon name="bars" />
+              <Icon name="bars"/>
             </a>
             <div className="menuItem" id="menuItem">
               {open ? (
