@@ -1,9 +1,72 @@
-import React, { useState } from "react";
-import { Menu, Segment, Button } from "semantic-ui-react";
+import React from "react";
+import { Grid, Image, Card, Icon } from "semantic-ui-react";
 import Header from "./Header";
+import Landing from "./Landing";
+import { Link } from "react-router-dom";
+import Samples from "./Samples";
+import dog from "../../Assets/me.png";
 
 export default function MainPage() {
-  const [activeItem, setActiveItem] = useState("closest");
-  const handleItemClick = (e, { name }) => setActiveItem(name);
-  return <Header />;
+  return (
+    <div className="MainPage">
+      <Header />
+      <Landing />
+      <Samples />
+      <div className="layoutList">
+        <Grid>
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              {" "}
+              <Link to="/l1">
+                <Card centered>
+                  <Image src={dog} wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Layout1</Card.Header>
+                    <Card.Description>Made by Erica</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Icon name="heart" />
+                    22 Used
+                  </Card.Content>
+                </Card>
+              </Link>
+            </Grid.Column>
+
+            <Grid.Column>
+              {" "}
+              <Link to="/l2">
+                <Card centered>
+                  <Image src={dog} wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Layout2</Card.Header>
+                    <Card.Description>Made by Jce</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Icon name="heart" />
+                    22 Used
+                  </Card.Content>
+                </Card>
+              </Link>
+            </Grid.Column>
+            <Grid.Column>
+              {" "}
+              <Link to="/l1">
+                <Card centered>
+                  <Image src={dog} wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Layout3</Card.Header>
+                    <Card.Description>Made by Erica</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Icon name="heart" />
+                    22 Used
+                  </Card.Content>
+                </Card>
+              </Link>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
+    </div>
+  );
 }

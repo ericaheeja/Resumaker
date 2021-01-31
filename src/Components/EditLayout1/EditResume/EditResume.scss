@@ -1,0 +1,102 @@
+.editResumeContainer {
+  width: 80%;
+  margin: 0 auto;
+  vertical-align: middle;
+
+  .resumeSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+
+  .title {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: 600;
+  }
+
+  .subTitle {
+    color: $white;
+    font-size: 20px;
+    text-align: center;
+    margin: 5% 0;
+    font-weight: 600;
+  }
+
+  .experienceCard {
+    background-color: $darkgray;
+    padding: 3%;
+    margin-bottom: 7%;
+    border-radius: 1%;
+
+    .removeBtn {
+      width: 100%;
+      background-color: $white;
+      height: 32px;
+      font-weight: 600;
+    }
+
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+
+    .ant-form-item-label {
+      padding: 1px 3px;
+      text-align: left;
+      flex: 0 0 100%;
+    }
+
+    .ant-form-item-label > label {
+      color: $lilywhite;
+      font-weight: 500;
+      font-size: 15.3px;
+    }
+
+    .period {
+      color: $gray;
+      font-weight: bold;
+      font-size: small;
+      margin-bottom: 5%;
+    }
+
+    .title {
+      // color: $lilywhite;
+      margin: 2% 0 0 0;
+      padding: 0;
+      text-align: left;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .experienceTitle,
+    .school,
+    .major {
+      margin-bottom: 5%;
+    }
+
+    .position {
+      color: $gray;
+      margin-bottom: 5%;
+    }
+
+    .description {
+      display: block;
+      margin: 2% 0 0 0;
+      color: $gray;
+      margin-bottom: 10%;
+    }
+
+    .saveBtn {
+      width: 100%;
+      margin-top: 3%;
+      font-weight: 600;
+    }
+  }
+}

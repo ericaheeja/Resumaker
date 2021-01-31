@@ -1,0 +1,22 @@
+.experienceContainer {
+
+    background-color: #2a2a2a;
+    
+    .contents {
+        width: 100%;
+        padding: 5vh 7.5vw;
+        margin: auto;
+
+        h4 {
+            padding: 10vh 7.5vw 0 7.5vw;
+            color: #cacaca;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.8;
+            font-family: "Playfair Display", Georgia, serif;
+            margin-bottom: 10vh;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@import "../../../Mixin.scss";
+
+.editPortfolioContainer {
+  .portfolioSave {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10%;
+    .ant-btn {
+      width: 200px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+  .portfolioTitle {
+    color: $white;
+    text-align: center;
+    margin: 10% 0 3% 0 !important;
+    font-weight: 600;
+    @include desktop {
+      margin: 4.5% 0 3% 0;
+    }
+  }
+
+  .portfolios {
+    .ui.grid {
+      margin: 0;
+      padding: 0 10% 0 10%;
+
+      @include mobileM {
+        padding: 0 9.5% 0 9.5%;
+      }
+
+      @include mobileL {
+        padding: 0;
+      }
+    }
+    .ui.card {
+      margin: 4% 5% 5% 5%;
+
+      @include mobileL {
+        width: 73%;
+      }
+
+      @include mobileLtoTableP {
+        width: 35%;
+        margin: 3% 2.5% 3% 2.5%;
+      }
+
+      @include tabletP {
+        width: 34%;
+        margin: 3% 5% 3% 5%;
+      }
+
+      @include laptop {
+        width: 25%;
+        margin: 3% 0.8% 3% 0.8%;
+      }
+
+      @include desktop {
+        width: 22%;
+        margin: 2% 3% 2% 3%;
+      }
+
+      .ant-upload.ant-upload-select-picture-card {
+        width: 100%;
+      }
+
+      .description {
+        height: 80px;
+      }
+
+      .content {
+        padding: 6px 12px;
+        margin-bottom: 20%;
+        .ant-form-item-label {
+          text-align: left;
+          flex: 0 0 100%;
+          font-weight: 600;
+        }
+      }
+
+      .doneBtn {
+        width: 100%;
+        margin-top: 2%;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
-$white: #fdfdfd;
-$black: #1b1c1d;
-$lighterblue: #f3fafe;
-// $lightblue: #dbf0fd;
-$darkblue: #6ca4c8;
-$darkerblue: #5e90af;
+// Mixin
+@import "./Mixin.scss";
+
+// antdesign
+
+@import "~antd/dist/antd.css";
 
 // Semantic-ui
 
@@ -12,3 +12,12 @@ $darkerblue: #5e90af;
 // MainPage
 
 @import "./Components/Mainpage/MainPage.scss";
+@import "./Components/MainPage/LoginModal.scss";
+
+// Layout1
+
+@import "./Components/Layout1/MainLayout1.scss";
+@import "./Components/EditLayout1/EditMainLayout1.scss";
+
+// Layout2
+@import "./Components//Layout2/Layout2.scss";

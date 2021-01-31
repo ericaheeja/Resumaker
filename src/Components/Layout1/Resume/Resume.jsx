@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Grid } from "semantic-ui-react";
 
 const experiences = [
@@ -41,7 +41,7 @@ const educations = [
       "Rick is a genius scientist whose alcoholism and reckless, nihilistic behavior are a source of concern for his family.",
   },
   {
-    school: "HightScchoclllas",
+    school: "Hight",
     major: "how to be a gentleman",
     period: "2009.02 ~ 2014.06",
     description:
@@ -71,14 +71,34 @@ const educationsCard = (education) => {
   );
 };
 
+let numOfColumns;
+
+const getNumOfColumns = () => {
+  if (window.innerWidth <= 426) {
+    numOfColumns = 1;
+  } else {
+    numOfColumns = 2;
+  }
+  return numOfColumns;
+};
+
 export default function Resume() {
+  const [col, setCol] = useState(getNumOfColumns());
+
+  const resizeOfScreen = () => {
+    if (window.innerWidth <= 426) {
+      setCol(1);
+    } else {
+      setCol(2);
+    }
+  };
+
+  window.addEventListener("resize", resizeOfScreen);
+
   return (
     <section id="RESUME" className="resumeContainer">
-      <div className="title">
-        <h1>RESUME</h1>
-      </div>
-
-      <Grid columns={2} padded="horizontally">
+        <h2 className="title">RESUME</h2>
+      <Grid columns={col} padded="horizontally">
         <Grid.Column>
           <h2 className="subTitle">Education</h2>
           {experiences.map((experience) => {

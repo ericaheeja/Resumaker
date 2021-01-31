@@ -1,0 +1,30 @@
+.editNavbar {
+  .ui.fixed.top.sticky {
+    width: 100%;
+    background-color: black;
+  }
+  .ui.inverted.segment {
+    margin: 0;
+    .bars {
+      cursor: pointer;
+      font-size: 25px;
+      @include laptop {
+        display: none;
+      }
+    }
+    .menuItem {
+      .ui.secondary.inverted.menu {
+        justify-content: center;
+        flex-direction: column;
+        @include laptop {
+          flex-direction: row;
+        }
+      }
+      .ui.secondary.inverted.menu a.item {
+        color: $white !important;
+        padding: 8px 24px;
+        font-weight: bold;
+      }
+    }
+  }
+}

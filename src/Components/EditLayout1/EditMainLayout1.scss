@@ -1,0 +1,38 @@
+// Home Components
+
+@import "./EditHome/EditHome.scss";
+
+// Portfolio Components
+
+@import "./EditPortfolio/EditPortfolio.scss";
+
+// Portfolio Components
+
+@import "./EditResume/EditResume.scss";
+
+// About Components
+
+@import "./EditAbout/EditAbout.scss";
+
+// Skills Components
+
+@import "./EditSkills/EditSkills.scss";
+
+// Contact Components
+
+@import "./EditContact/EditContact.scss";
+
+.MainLayout1 {
+  background: $black;
+  margin-top: 52px;
+  .ui.fixed.top.sticky.topButton {
+    right: 1%;
+    top: 90%;
+  }
+  @include laptop {
+    margin-top: 67px;
+  }
+  @include desktop {
+    padding-top: 1px;
+  }
+}

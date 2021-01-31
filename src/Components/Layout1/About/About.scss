@@ -1,35 +1,62 @@
 .AboutContainer {
-  width: 80%;
-  margin: 0 auto;
+  @include mobileL {
+    width: 312px;
+  }
+  @include tabletP {
+    width: 590px;
+  }
+  @include laptop {
+    width: 792px;
+  }
+  @include desktop {
+    width: 1124px;
+  }
+  width: 73.5%;
+  margin: 10% auto;
   vertical-align: middle;
+
+  .aboutMeTitle {
+    color: $white;
+    text-align: center;
+    margin: 10% auto 10%;
+    font-weight: 600;
+
+    @include tabletP {
+      margin: 10% auto 5%;
+    }
+  }
+
+  .aboutMeContents {
+    background-color: $darkgray;
+  }
 
   .textBox {
     color: white;
-    padding: 0 30px;
 
     .aboutMe {
-      margin-top: 3%;
+      margin-top: 1.5%;
       font-size: 30px;
     }
 
     .contents {
-      margin-top: 10%;
+      margin-top: 1.5%;
       font-size: 18px;
       color: rgba(255, 255, 255, 0.4);
     }
 
     .buttons {
-      margin-top: 10%;
+      color: $white;
 
       .ui.primary.button {
-        color: $white;
+        width: 150px;
         background-color: #bac964;
         background: #bac964;
-        margin-right: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
       }
 
       .ui.secondary.button {
-        color: $white;
+        width: 150px;
         background-color: #6c757d;
         background: #6c757d;
       }
