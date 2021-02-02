@@ -4,9 +4,10 @@ const sampleContent = `Hello! I am a junior front-end developer from Vancouver. 
 
 export default function About() {
   return (
-    <section className="aboutContainer">
+    <section id="about" className="aboutContainer">
       <div className="contents">
-        <h4>ABOUT ME</h4>
+        <h5>ABOUT ME</h5>
+        <h4>Who AM I ?</h4>
         <p>{sampleContent}</p>
       </div>
     </section>
