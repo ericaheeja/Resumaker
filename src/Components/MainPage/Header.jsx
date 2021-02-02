@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
 import { UserOutlined } from "@ant-design/icons";
@@ -11,21 +11,20 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [activeItem, setActiveItem] = useState("Overview");
   const handleItemClick = (e, { name }) => setActiveItem(name);
-  const islogged = useSelector((state) => state.isLogged);
+  const islogged = useSelector((state) => state?.isLogged);
   console.log(islogged);
   return (
     <div className="MainHeader">
       <Grid columns="equal">
         <Grid.Column floated="left" verticalAlign="middle">
           <div>
-            <h2 className="logo">RESUMAKER</h2>
             <Link to="/">
               <h2 className="logo">RESUMAKER</h2>
             </Link>
           </div>
         </Grid.Column>
         <Grid.Column floated="right" textAlign="right" verticalAlign="middle">
-          {islogged == null ? (
+          {islogged === null ? (
             <LoginModal />
           ) : (
             <div className="rightSideHeader">

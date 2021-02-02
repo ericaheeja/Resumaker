@@ -1,50 +1,63 @@
 @import "../../Mixin.scss";
 @import "./Home/Home.scss";
 @import "./About/About.scss";
-@import "./Work/Work.scss";
-@import "./Education/Education.scss";
 @import "./Experience/Experience.scss";
+@import "./Contact/Contact.scss";
+@import "./Skills/Skills.scss";
 
 .layout2 {
-  #mainContents {
-    transition: margin 0.3s;
-  }
-
-  .trigger {
-    font-size: 18px;
-    line-height: 64px;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-
-  .trigger:hover {
-    color: #1890ff;
-  }
-
-  .site-layout .site-layout-background {
-    background: #fff;
-    height: 100vh;
-  }
-
-  .ant-layout-sider-zero-width-trigger {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-
-  .ant-layout-sider {
-    position: fixed;
-
-    @include tablePtoLaptop {
-      float: left;
-      z-index: 1001;
+  .ant-drawer {
+    .ant-drawer-content {
+      .ant-drawer-body {
+        background-color: #e8e8e8 !important;
+        .navbar {
+          .imgWrapper {
+            margin-top: 25px;
+            text-align: center;
+          }
+          .siderContents {
+            h2 {
+              margin : 0;
+            }
+  
+            .menu {
+              margin : 25px 0;
+            }
+          }
+        }
+      }
     }
   }
-
-  @include tablePtoLaptop {
-    .ant-layout {
-      margin-left: 300px;
+  .layout {
+  
+    @include tabletP {
+      margin-left: 256px;
     }
-  }
+    .ant-layout-sider {
+      .ant-layout-sider-children {
+        background-color: #e8e8e8 !important;
+        .navbar {
+          width: 256px;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+  
+          .imgWrapper {
+            margin-top: 25px;
+            text-align: center;
+          }
+          .siderContents {
+            h2 {
+              margin : 0;
+            }
+    
+            .menu {
+              margin : 25px 0;
+            }
+          }
+        }
+      }
+    }
+  }  
 }
