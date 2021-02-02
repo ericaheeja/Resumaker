@@ -1,22 +1,107 @@
 .experienceContainer {
 
-    background-color: #2a2a2a;
     
     .contents {
         width: 100%;
         padding: 5vh 7.5vw;
         margin: auto;
 
+        ul {
+            text-align: center;
+            padding-inline-start: 0;
+        }
+
+        .imageCard {
+            margin: 20px;
+            padding:0;
+            border: 1px solid transparent;
+            width: 230px;
+            position: relative;
+            display: inline-grid;
+            
+
+            .imgWrapper {
+                width: 100%;
+                height: 230px;
+            }
+
+            .innerContent {
+                background-color: #e8e8e8;
+                max-width: 300px;
+                .title {
+                    font-weight: 800;
+                    font-size: 1.4em;
+                    color: black;
+                    font-style: italic;
+                    margin:0;
+                }
+    
+                .subtitle {
+                    color: black;
+                    font-size: 0.8em;
+                }
+
+                .worksList {
+                    
+                    .work {
+                        display: inline-block;
+                        padding: 8px 5px;
+                        background-color: #313131;
+                        color:#999;
+                        border-width: 1px 1px 2px 1px;
+                        border-style: #222;
+                        border-radius: 3px;
+                        text-transform: uppercase;
+                        font-family: MontSerrat,Tahoma,Arial,sans-serif;
+                        font-weight:700;
+                        font-size: .75em;
+                        line-height: 1em;
+                        box-shadow: 1px 1px  rgba(0,0,0,.25);
+                        margin: 3px;
+                        opacity: 1;
+                        cursor: pointer;
+                        position: relative;
+                        overflow: hidden;
+                        
+                    }
+                }
+            }
+
+
+        }
+
+
+
+
+        h5 {
+            margin-top: 10vh;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #999999;
+            font-weight: 500;
+            letter-spacing: 5px;
+        }
+
         h4 {
-            padding: 10vh 7.5vw 0 7.5vw;
-            color: #cacaca;
-            text-align: left;
+            
+            color: #000;
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 5px;
             line-height: 1.8;
             font-family: "Playfair Display", Georgia, serif;
-            margin-bottom: 10vh;
         }
+
+        p {
+            margin: 7vh 0;
+            font-family: "Quicksand", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
     }
 }
