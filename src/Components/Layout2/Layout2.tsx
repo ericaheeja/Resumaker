@@ -7,47 +7,47 @@ import {
   GithubOutlined,
 } from "@ant-design/icons";
 import { Image } from "semantic-ui-react";
-import Home from "./Home/Home";
-import About from "./About/About";
-import Skills from "./Skills/Skills";
-import Experience from "./Experience/Experience";
-import Contact from "./Contact/Contact";
+import {Home} from "./Home/Home";
+import {About} from "./About/About";
+import {Skills} from "./Skills/Skills";
+import {Experience} from "./Experience/Experience";
+import {Contact} from "./Contact/Contact";
 import Me from "../../Assets/layout2/jcelee.jpeg";
 
 const { Sider } = Layout;
 
-export default function Layout2() {
+export const Layout2 : React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [forcedRender, setForcedRender] = useState(false);
 
-  const reRender = () => {
+  const reRender = () : void=> {
     relocateNavbar();
     setForcedRender(!forcedRender);
   };
 
   window.addEventListener("resize", reRender);
 
-  const showDrawer = () => {
+  const showDrawer = () : void => {
     setVisible(true);
   };
 
-  const onClose = () => {
+  const onClose = () : void => {
     setVisible(false);
   };
 
-  useEffect(() => {
+  useEffect(() : void => {
     reRender();
   }, []);
 
-  const relocateNavbar = () => {
+  const relocateNavbar = () : void => {
     if (window.innerWidth >= 1024) {
-      document.getElementById("navbarLaptop").style.left = "calc((100vw - 1024px)/2)";
+      document.getElementById("navbarLaptop")!.style.left = "calc((100vw - 1024px)/2)";
     }
   };
 
-  const handleItemClick = (name) => {
+  const handleItemClick = (name : string) : void => {
     setVisible(false);
-    const skills = document.getElementById(name);
+    const skills = document.getElementById(name)!;
     skills?.scrollIntoView({ block: "end", behavior: "smooth" });
   };
 

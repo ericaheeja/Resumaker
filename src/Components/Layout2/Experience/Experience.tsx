@@ -5,7 +5,13 @@ import bookito from "../../../Assets/layout2/bookito.jpeg";
 import resumaker from "../../../Assets/layout2/resumaker.jpeg";
 import strongGame from "../../../Assets/layout2/strongGame.png";
 
-const experiences = [
+interface dataType {
+  title: string,
+  url: string,
+  techList: string[],
+}
+
+const experiences: dataType[] = [
   {
     title: "bookito",
     url: bookito,
@@ -37,8 +43,9 @@ const experiences = [
   },
 ];
 
-export default function Experience() {
-  const workCard = (work, index) => {
+export const Experience: React.FC = () => {
+
+  const workCard = (work: string, index: number) => {
     return (
       <li className="work" key={index}>
         {work}
@@ -46,7 +53,7 @@ export default function Experience() {
     );
   };
 
-  const imageCard = (experience, index) => {
+  const imageCard = (experience: dataType, index: number) => {
     return (
       <li className="imageCard" key={index}>
         <div className="imgWrapper">

@@ -2,7 +2,12 @@ import React from "react";
 import { List, Avatar } from "antd";
 import jsImg from "../../../Assets/layout2/javascript.png";
 
-const data = [
+interface dataType {
+  title : string,
+  description : string[],
+}
+
+const data: dataType[] = [
   {
     title: "JavaScript",
     description: [
@@ -48,7 +53,7 @@ const data = [
   },
 ];
 
-export default function Skills() {
+export const Skills: React.FC = () => {
   return (
     <section id="skills" className="skillsContainer">
       <div className="contents">

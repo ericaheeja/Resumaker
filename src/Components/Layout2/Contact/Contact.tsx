@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Contact() {
+export const Contact : React.FC = () => {
   return (
     <section id="contact" className="contactContainer">
       <div className="contents">
