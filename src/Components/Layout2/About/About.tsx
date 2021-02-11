@@ -2,7 +2,7 @@ import React from "react";
 
 const sampleContent = `Hello! I am a junior front-end developer from Vancouver. I have over 2 years of experience in startups and big progjects like this website. Hello! I am a junior front-end developer from Vancouver. I have over 2 years of experience in startups and big progjects like this website. Hello! I am a junior front-end developer from Vancouver. I have over 2 years of experience in startups and big progjects like this website. Hello! I am a junior front-end developer from Vancouver. I have over 2 years of experience in startups and big progjects like this website. Hello! I am a junior front-end developer from Vancouver. I have over 2 years of experience in startups and big progjects like this website.`;
 
-export default function About() {
+export const About: React.FC = () => {
   return (
     <section id="about" className="aboutContainer">
       <div className="contents">

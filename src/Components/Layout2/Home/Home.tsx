@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Home() {
+export const Home: React.FC = () => {
   return (
     <section id="home" className="homeContainer">
       <div className="contents">Bonjour</div>
