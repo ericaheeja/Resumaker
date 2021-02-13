@@ -17,8 +17,8 @@ import Me from "../../Assets/layout2/jcelee.jpeg";
 const { Sider } = Layout;
 
 export const Layout2 : React.FC = () => {
-  const [visible, setVisible] = useState(false);
-  const [forcedRender, setForcedRender] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
+  const [forcedRender, setForcedRender] = useState<boolean>(false);
 
   const reRender = () : void=> {
     relocateNavbar();
