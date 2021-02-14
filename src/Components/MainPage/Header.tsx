@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import Button from "../commonComponents/Button";
 import { Grid, Menu } from "semantic-ui-react";
 import { UserOutlined } from "@ant-design/icons";
-import { getKeyThenIncreaseKey } from "antd/lib/message";
 import { useSelector } from "react-redux";
 import LoginModal from "./LoginModal";
 import Logout from "./Logout";
-import UserPage from "../UserPage/UserPage";
 import { Link } from "react-router-dom";
-export default function Header() {
-  const [activeItem, setActiveItem] = useState("Overview");
-  const handleItemClick = (e, { name }) => setActiveItem(name);
-  const islogged = useSelector((state) => state?.isLogged);
+import { RootState } from "../../Redux";
+
+export const Header : React.FC = () => {
+  // const [activeItem, setActiveItem] = useState<String>("Overview");
+  // const handleItemClick = (e, { name }) => setActiveItem(name);
+  const islogged = useSelector((state: RootState) => state.isLogged);
   console.log(islogged);
   return (
     <div className="MainHeader">
