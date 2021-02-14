@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { firebaseAuth } from "../../Config/firebase";
-import { logout } from "../../Actions";
+import { logout } from "../../Redux/isLogged";
 import { Button } from "semantic-ui-react";
 
 export default function Logout() {

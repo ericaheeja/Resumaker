@@ -6,8 +6,9 @@ import firebase from "firebase/app";
 import { firebaseAuth } from "../../Config/firebase";
 import { generateUserDocument } from "../../Helpers/authentication";
 import { useSelector, useDispatch } from "react-redux";
-import { googleLogin, facebookLogin } from "../../Actions";
+import { googleLogin, facebookLogin } from "../../Redux/isLogged";
 import { useHistory } from "react-router-dom";
+import { RootState } from "../../Redux";
 
 function LoginModal() {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ function LoginModal() {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-  const islogged = useSelector((state) => state.isLogged);
+  const islogged = useSelector((state: RootState) => state.isLogged);
   console.log(islogged);
 
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ function LoginModal() {
       generateUserDocument(result.user).then(function (userData) {
         // console.log(currentUser);
         dispatch(googleLogin(userData));
-        setCurrentUser(islogged);
         goBackToHome();
       });
     });
@@ -64,7 +64,7 @@ function LoginModal() {
           Login with{" "}
           <Button
             className="closeBtn"
-            color="$white"
+            color="facebook"
             floated="right"
             onClick={() => setOpen(false)}
           >
