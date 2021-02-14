@@ -4,7 +4,7 @@ import "./App.scss";
 import MainLayout1 from "./Components/Layout1/MainLayout1";
 import EditMainLayout1 from "./Components/EditLayout1/EditMainLayout1";
 import {Layout2} from "./Components/Layout2/Layout2";
-import MainPage from "./Components/MainPage/MainPage";
+import {MainPage} from "./Components/MainPage/MainPage";
 import ScrollUp from "./ScrollUp";
 import UserPage from "./Components/UserPage/UserPage";
 

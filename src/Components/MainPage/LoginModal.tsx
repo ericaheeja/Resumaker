@@ -10,7 +10,7 @@ import { googleLogin, facebookLogin } from "../../Redux/isLogged";
 import { useHistory } from "react-router-dom";
 import { RootState } from "../../Redux";
 
-function LoginModal() {
+export const LoginModal: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -88,5 +88,3 @@ function LoginModal() {
     </div>
   );
 }
-
-export default LoginModal;

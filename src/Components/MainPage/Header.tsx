@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Grid, Menu } from "semantic-ui-react";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import LoginModal from "./LoginModal";
-import Logout from "./Logout";
+import {LoginModal} from "./LoginModal";
+import {Logout} from "./Logout";
 import { Link } from "react-router-dom";
 import { RootState } from "../../Redux";
 
