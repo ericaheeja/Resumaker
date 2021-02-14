@@ -35,3 +35,7 @@ Changed Firestore to MongoDB
 ## Jan.01.20 2020
 
 Modified Layout2 with TSX
+
+## Jan.02.3 2020
+
+Apply TypeScript to MainPage
