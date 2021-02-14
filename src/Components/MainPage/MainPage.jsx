@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Image, Card, Icon } from "semantic-ui-react";
-import Header from "./Header";
+import { Header } from "./Header";
 import Landing from "./Landing";
 import { Link } from "react-router-dom";
 import Samples from "./Samples";
