@@ -1,37 +1,23 @@
+import {
+    createAction,
+    ActionType,
+    createReducer
+  } from 'typesafe-actions';
+
 // Declare Types
-const GOOGLE_SIGN_IN = 'GOOGLE_SIGN_IN' as const;
-const FACEBOOK_SIGN_IN = 'FACEBOOK_SIGN_IN' as const;
-const SIGN_OUT = 'SIGN_OUT' as const;
+const GOOGLE_SIGN_IN = 'GOOGLE_SIGN_IN';
+const FACEBOOK_SIGN_IN = 'FACEBOOK_SIGN_IN';
+const SIGN_OUT = 'SIGN_OUT';
 
 
-// Action functions
-export const googleLogin = (userData : any) => {
-    return {
-        type: GOOGLE_SIGN_IN,
-        payload: userData
-    };
-}
-
-export const facebookLogin = (userData : any) => {
-    return {
-        type: FACEBOOK_SIGN_IN,
-        payload: userData
-    };
-}
-
-export const logout = () => {
-    return {
-        type: SIGN_OUT,
-        payload: null
-    };
-}
+export const googleLogin = createAction(GOOGLE_SIGN_IN)<any>();
+export const facebookLogin = createAction(FACEBOOK_SIGN_IN)<any>();
+export const logout = createAction(SIGN_OUT)();
 
 
 // Type for Actions 
-type Actions =
-  | ReturnType<typeof googleLogin>
-  | ReturnType<typeof facebookLogin>
-  | ReturnType<typeof logout>;
+const actions = { googleLogin, facebookLogin, logout };
+type LogInAction = ActionType<typeof actions>;
 
 
 type signedInUser = Object | null;  
@@ -39,21 +25,10 @@ type signedInUser = Object | null;
 // Initial State
 const initialState: signedInUser = null;  
 
-// Reducer
-const isLogged = (state: signedInUser = initialState, action:Actions) => {
-    switch(action.type) {
-        case 'GOOGLE_SIGN_IN':
-            return action.payload;
-
-        case 'FACEBOOK_SIGN_IN':
-            return action.payload;
-
-        case 'SIGN_OUT':
-            return action.payload;
-
-        default:
-            return state;
-    }
-}
+const isLogged = createReducer<signedInUser, LogInAction>(initialState, {
+    [GOOGLE_SIGN_IN]: (state, action) => (action.payload),
+    [FACEBOOK_SIGN_IN]: (state, action) => (action.payload),
+    [SIGN_OUT]: state => null
+  });
 
 export default isLogged;

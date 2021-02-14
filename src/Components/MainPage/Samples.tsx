@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Samples() {
+export const Samples: React.FC = () => {
   return (
     <div className="Samples">
       <div className="content">

@@ -1,12 +1,12 @@
 import React from "react";
 import { Grid, Image, Card, Icon } from "semantic-ui-react";
 import { Header } from "./Header";
-import Landing from "./Landing";
+import {Landing} from "./Landing";
 import { Link } from "react-router-dom";
-import Samples from "./Samples";
+import {Samples} from "./Samples";
 import dog from "../../Assets/me.png";
 
-export default function MainPage() {
+export const MainPage:React.FC = () => {
   return (
     <div className="MainPage">
       <Header />
