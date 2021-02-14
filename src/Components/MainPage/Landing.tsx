@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../commonComponents/Button";
 
-export default function Landing() {
+export const Landing : React.FC = () => {
   // const title = `Beautiful portfolio websites
   // Create your own for free.`;
   const title = `Make your dreams come true with Resumaker`;

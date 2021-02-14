@@ -5,13 +5,13 @@ import { firebaseAuth } from "../../Config/firebase";
 import { logout } from "../../Redux/isLogged";
 import { Button } from "semantic-ui-react";
 
-export default function Logout() {
+export const Logout = () => {
   //   const [login, setLogin] = useState(true);
   const dispatch = useDispatch();
 
   const loggedOut = () => {
     firebaseAuth.signOut().then(function () {
-      dispatch(logout(null));
+      dispatch(logout());
     });
   };
 
