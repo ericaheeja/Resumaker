@@ -5,6 +5,7 @@ import {Landing} from "./Landing";
 import { Link } from "react-router-dom";
 import {Samples} from "./Samples";
 import dog from "../../Assets/me.png";
+import layout2Cover from "../../Assets/layout2/layout2.jpeg";
 
 export const MainPage:React.FC = () => {
   return (
@@ -36,14 +37,14 @@ export const MainPage:React.FC = () => {
               {" "}
               <Link to="/l2">
                 <Card centered>
-                  <Image src={dog} wrapped ui={false} />
+                  <Image src={layout2Cover} wrapped ui={false} />
                   <Card.Content>
                     <Card.Header>Layout2</Card.Header>
                     <Card.Description>Made by Jce</Card.Description>
                   </Card.Content>
                   <Card.Content extra>
                     <Icon name="heart" />
-                    22 Used
+                    32 Used
                   </Card.Content>
                 </Card>
               </Link>

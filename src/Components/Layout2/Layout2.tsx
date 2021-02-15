@@ -52,10 +52,10 @@ export const Layout2 : React.FC = () => {
   };
 
   return (
-    <div className="layout2">
+    <main className="layout2">
       {window.innerWidth >= 768 ? (
         <Sider width="256px">
-          <div className="navbar" id="navbarLaptop" style={{ background: "#fff" }}>
+          <nav className="navbar" id="navbarLaptop" style={{ background: "#fff" }}>
             <div className="imgWrapper">
               <Image
                 src={Me}
@@ -70,18 +70,18 @@ export const Layout2 : React.FC = () => {
                 centered
               />
             </div>
-            <div className="siderContents" style={{ textAlign: "center" }}>
+            <div className="siderContents">
               <h2>이강민</h2>
               <h5>
                 <span style={{ color: "#2c98f0" }}> Junior Front-End Developer</span>
               </h5>
-              <div className="menu">
-                <p onClick={() => handleItemClick("home")}>HOME</p>
-                <p onClick={() => handleItemClick("about")}>ABOUT</p>
-                <p onClick={() => handleItemClick("skills")}>{`WORKS & SKILLS`}</p>
-                <p onClick={() => handleItemClick("experience")}>EXPERIENCE</p>
-                <p onClick={() => handleItemClick("contact")}>CONTACT</p>
-              </div>
+              <ul className="menu">
+                <li onClick={() => handleItemClick("home")}>HOME</li>
+                <li onClick={() => handleItemClick("about")}>ABOUT</li>
+                <li onClick={() => handleItemClick("skills")}>{`WORKS & SKILLS`}</li>
+                <li onClick={() => handleItemClick("experience")}>EXPERIENCE</li>
+                <li onClick={() => handleItemClick("contact")}>CONTACT</li>
+              </ul>
               <div style={{ fontSize: "30px" }}>
                 <FacebookOutlined style={{ padding: "10px" }} />
                 <InstagramOutlined style={{ padding: "10px" }} />
@@ -89,21 +89,22 @@ export const Layout2 : React.FC = () => {
                 <GithubOutlined style={{ padding: "10px" }} />
               </div>
             </div>
-          </div>
+          </nav>
         </Sider>
       ) : (
         <></>
       )}
-
-      <Home />
-      <About />
-      <Skills />
-      <Experience />
-      <Contact />
+      <div className="components">
+        <Home />
+        <About />
+        <Skills />
+        <Experience />
+        <Contact />
+      </div>
 
       {window.innerWidth < 768 ? (
-        <div>
-          <Button type="primary" onClick={showDrawer}>
+        <>
+          <Button className="drawerBtn" type="primary" onClick={showDrawer}>
             Open
           </Button>
           <Drawer placement="left" closable={false} onClose={onClose} visible={visible}>
@@ -143,10 +144,10 @@ export const Layout2 : React.FC = () => {
               </div>
             </div>
           </Drawer>
-        </div>
+        </>
       ) : (
         <></>
       )}
-    </div>
+    </main>
   );
 }
